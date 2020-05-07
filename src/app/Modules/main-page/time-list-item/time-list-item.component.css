@@ -1,0 +1,17 @@
+button.deleteButton {
+    padding: 5px 10px;
+}
+
+button.deleteButton:hover {
+    cursor: pointer;
+}
+
+li {
+    width: 100%;
+}
+
+button {
+    display: inline-block;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}

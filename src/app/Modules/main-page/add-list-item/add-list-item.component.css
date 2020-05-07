@@ -1,0 +1,23 @@
+input.taskNameInput {
+    width: 60%;
+    margin-left: 20%;
+}
+
+label {
+    position: relative;
+    left: 20%;
+}
+
+div.newTaskFormHolder {
+    margin-bottom: 50px;
+}
+
+div.dropdown {
+    width: 30%;
+    left: 20%;
+    top: 20px;
+}
+
+div.dropDownMenu {
+    width: 60%;
+}

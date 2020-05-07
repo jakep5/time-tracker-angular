@@ -1,0 +1,17 @@
+<app-homepage-nav></app-homepage-nav>
+
+<div class="jumbotron">
+    <h1 class="display-3">TimeTracker</h1>
+    <p class="lead">Need help managing your time? You've come to the right place</p>
+    <hr class="my-2">
+    <p class="moreInfo" (click)="displayMoreInfo()">More info</p>
+
+    <app-info-component *ngIf="moreInfoDisplay"></app-info-component>
+
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" href="/signUp" role="button">Sign Up</a>
+    </p>
+
+    <p>Already a user? <a href="/signIn" role="button">Sign In</a></p>
+</div>
+

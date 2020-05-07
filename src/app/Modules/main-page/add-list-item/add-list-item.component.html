@@ -1,0 +1,19 @@
+<div class="form-group" class="newTaskFormHolder">
+  <form class="newTaskForm" id="newTaskForm">
+    <label for="taskName">Task name:</label>
+    <input type="text"
+      class="form-control taskNameInput" name="" #taskName id="taskName" aria-describedby="helpId" placeholder="name">
+
+    <div class="dropdown">
+      <button (click)="showDropdownToggle()" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        select priority
+      </button>
+      <div *ngIf="showDropdown" class="dropDownMenu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">Low</a>
+        <a class="dropdown-item" href="#">Medium</a>
+        <a class="dropdown-item" href="#">High</a>
+      </div>
+    </div>
+  </form>
+  
+</div>

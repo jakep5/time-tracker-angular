@@ -1,0 +1,14 @@
+<div class="form-group">
+  <form id="signUpForm">
+    <label for="">Username</label>
+    <input type="text" #userName class="form-control" name="" id="signUpUsername" aria-describedby="emailHelpId" placeholder="username">
+    <small id="textHelpId" class="form-text text-muted">Help text</small>
+
+    <label for="">Password</label>
+    <input type="password" #userPassword class="form-control" name="" id="signUpPassword" placeholder="password">
+
+    <button (click)="createNewUser(userName.value, userPassword.value)" type="button" class="btn btn-primary">Sign Up</button>
+  </form>  
+</div>
+
+

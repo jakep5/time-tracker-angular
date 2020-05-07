@@ -1,0 +1,5 @@
+<div class="timeListHolder">
+    <ul class="list-group">
+        <app-time-list-item (deleteItemEvent)="deleteItem($event)" *ngFor="let taskEntry of tasks" [task]="taskEntry"></app-time-list-item>
+    </ul>
+</div>
