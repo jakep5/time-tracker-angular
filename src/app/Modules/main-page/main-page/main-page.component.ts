@@ -9,12 +9,8 @@ export class MainPageComponent implements OnInit {
 
   constructor() { }
 
-  toggleAddToList: boolean = false;
-
   ngOnInit(): void {
   }
 
-  toggleShowAdd(): void {
-    this.toggleAddToList = !this.toggleAddToList;
-  }
+ 
 }

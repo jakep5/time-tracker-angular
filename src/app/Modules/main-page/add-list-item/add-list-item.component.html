@@ -1,19 +1,52 @@
 <div class="form-group" class="newTaskFormHolder">
-  <form class="newTaskForm" id="newTaskForm">
-    <label for="taskName">Task name:</label>
-    <input type="text"
-      class="form-control taskNameInput" name="" #taskName id="taskName" aria-describedby="helpId" placeholder="name">
-
-    <div class="dropdown">
-      <button (click)="showDropdownToggle()" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        select priority
-      </button>
-      <div *ngIf="showDropdown" class="dropDownMenu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Low</a>
-        <a class="dropdown-item" href="#">Medium</a>
-        <a class="dropdown-item" href="#">High</a>
+  <form #addTaskForm="ngForm" (ngSubmit)="addTaskForm.valid && onSubmit(addTaskForm)" class="newTaskForm">
+    <div class="form-group">
+      <label for="taskName">Task name:</label>
+      <input 
+        [(ngModel)]="model.name"
+        [ngClass]="{ 'is-invalid': addTaskForm.submitted  }"
+        #name="ngModel"
+        type="text"
+        class="form-control taskNameInput" 
+        name="taskName" 
+        id="taskName" 
+        aria-describedby="helpId" 
+        placeholder="" 
+        required
+      />
+      <div class="invalid-feedback nameFeedback" *ngIf="addTaskForm.submitted && name.errors.required">
+        <div>Task name is required</div>
       </div>
     </div>
+
+    <div class="dropdown form-group">
+      <label for="priority" class="priorityLabel">Select Priority:</label>
+      <select 
+        [(ngModel)]="model.priority"
+        name="priority" 
+        [ngClass]="{ 'is-invalid': addTaskForm.submitted && priority.invalid }"
+        #priority="ngModel"
+        id="priority" 
+        required
+        class="dropDownMenu form-control" 
+        aria-labelledby="dropdownMenuButton"
+      >
+        <option value="low" class="dropdown-item" >Low</option>
+        <option value="med" class="dropdown-item" >Medium</option>
+        <option value="high" class="dropdown-item" >High</option>
+      </select>
+      <div class="invalid-feedback" *ngIf="addTaskForm.submitted && priority.invalid">
+        <div *ngIf="priority.errors.required">Must select a priority</div>
+      </div>
+    </div> 
+
+    <div class="form-group">
+      <label for="hours" class="hoursLabel">Hours so far:</label>
+      <input type="number" required class="form-control hoursInput" [(ngModel)]="model.hours" #hours name="hours" placeholder="0"/>
+    </div>
+    
+    <button type="submit" (click)="addTaskForm.control.markAsTouched()" for="addTaskForm" class="btn btn-primary itemSubmitButton">Submit</button>
   </form>
-  
 </div>
+
+

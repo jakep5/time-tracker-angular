@@ -1,7 +1,7 @@
 export class Task {
-    id: number;
-    name: string;
-    hours: number = 0;
-    userId: number = 1;
-    priority: string; //low, med, high?
+    public id: number;
+    public name: string;
+    public hours: number = 0;
+    public userId: number = 1;
+    public priority: string; //low, med, high?
 }

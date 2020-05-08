@@ -15,6 +15,8 @@ export class TimeListItemComponent implements OnInit {
 
   currentStyles: {};
 
+  showTaskDetails: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -40,6 +42,11 @@ export class TimeListItemComponent implements OnInit {
   deleteItem(task: Task) {
     console.log('here');
     this.deleteItemEvent.emit(task);
+  }
+
+  toggleShowTaskDetails(): void {
+    this.showTaskDetails = !this.showTaskDetails
+    console.log(this.showTaskDetails);
   }
 
 }

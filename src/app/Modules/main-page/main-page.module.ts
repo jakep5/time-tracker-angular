@@ -5,13 +5,15 @@ import { MainPageNavComponent } from './main-page-nav/main-page-nav.component';
 import { TimeListComponent } from './time-list/time-list.component';
 import { TimeListItemComponent } from './time-list-item/time-list-item.component';
 import { AddListItemComponent } from './add-list-item/add-list-item.component';
+import { FormsModule } from '@angular/forms';
 
 
 
 @NgModule({
   declarations: [MainPageComponent, MainPageNavComponent, TimeListComponent, TimeListItemComponent, AddListItemComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ]
 })
 export class MainPageModule { }

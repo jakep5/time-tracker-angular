@@ -6,8 +6,12 @@ button.deleteButton:hover {
     cursor: pointer;
 }
 
-li {
+li.listItem {
     width: 100%;
+}
+
+.listItem:hover {
+    cursor: pointer;
 }
 
 button {

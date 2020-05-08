@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { NgForm, FormsModule } from '@angular/forms';
+
+import { Task } from '../../shared/models/Task';
 
 @Component({
   selector: 'app-add-list-item',
@@ -7,15 +10,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddListItemComponent implements OnInit {
 
+  @Output() newTask: EventEmitter<Task> = new EventEmitter();
+
   constructor() { }
 
-  showDropdown: boolean = false;
-
   ngOnInit(): void {
+    
   }
 
-  showDropdownToggle(): void {
-    this.showDropdown = !this.showDropdown
+  model = new Task();
+
+  formValidity: object = {
+    name: true,
+    hours: true,
+    priority: true
   }
+
+  onSubmit(addTaskForm: NgForm) {
+    console.log(addTaskForm.value);
+    if (addTaskForm.valid) {
+
+    }
+
+    this.newTask.emit(addTaskForm.value);
+  }
+
 
 }

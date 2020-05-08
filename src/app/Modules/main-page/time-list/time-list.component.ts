@@ -18,6 +18,8 @@ export class TimeListComponent implements OnInit {
     {id: 4, name: "test4", hours: 5, userId: 1, priority: "med"}
   ]
 
+  toggleAddToList: boolean = false;
+
   ngOnInit(): void {
 
   }
@@ -34,4 +36,12 @@ export class TimeListComponent implements OnInit {
     })
   }
 
+  addNewTask(task: Task):void {
+    this.toggleAddToList = !this.toggleAddToList;
+    console.log(task);
+  }
+
+  toggleShowAdd(): void {
+    this.toggleAddToList = !this.toggleAddToList;
+  }
 }

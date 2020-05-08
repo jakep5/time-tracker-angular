@@ -8,6 +8,10 @@ label {
     left: 20%;
 }
 
+label.priorityLabel {
+    left: 0%;
+}
+
 div.newTaskFormHolder {
     margin-bottom: 50px;
 }
@@ -18,6 +22,35 @@ div.dropdown {
     top: 20px;
 }
 
-div.dropDownMenu {
+select.dropDownMenu {
     width: 60%;
+}
+
+button.itemSubmitButton {
+    margin-top: 20px;
+    position: relative;
+    left: calc(50% - 20px);
+}
+
+label.hoursLabel {
+    margin-top: 20px;
+}
+
+input.hoursInput {
+    width: 20%;
+    margin-left: 20%;
+}
+
+.is-invalid {
+    border-color: red;
+}
+
+div.nameFeedback {
+    position: relative;
+    left: 20%;
+}
+
+.invalid-feedback.feedback-icon {
+    position: relative;
+    right: 5px;
 }

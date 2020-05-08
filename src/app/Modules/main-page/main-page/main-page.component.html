@@ -1,11 +1,4 @@
 <app-main-page-nav></app-main-page-nav>
 
-<div class="taskList">
-    <h1 class="mainPageHeader">Your Tasks</h1>
+<app-time-list></app-time-list>
 
-    <button (click)="toggleShowAdd()" type="button" class="btn btn-primary btn-lg addTaskButton">Add Task</button>
-
-    <app-add-list-item *ngIf="toggleAddToList"></app-add-list-item>
-
-    <app-time-list></app-time-list>
-</div>

@@ -1,5 +1,13 @@
-<div class="timeListHolder">
-    <ul class="list-group">
-        <app-time-list-item (deleteItemEvent)="deleteItem($event)" *ngFor="let taskEntry of tasks" [task]="taskEntry"></app-time-list-item>
-    </ul>
+<div class="taskList">
+    <h1 class="mainPageHeader">Your Tasks</h1>
+
+    <button (click)="toggleShowAdd()" type="button" class="btn btn-primary btn-lg addTaskButton">Add Task</button>
+
+    <app-add-list-item (newTask)="addNewTask($event)" *ngIf="toggleAddToList"></app-add-list-item>
+
+    <div class="timeListHolder">
+        <ul class="list-group">
+            <app-time-list-item (deleteItemEvent)="deleteItem($event)" *ngFor="let taskEntry of tasks" [task]="taskEntry"></app-time-list-item>
+        </ul>
+    </div>  
 </div>
