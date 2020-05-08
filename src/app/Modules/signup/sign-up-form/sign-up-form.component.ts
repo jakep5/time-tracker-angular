@@ -1,14 +1,14 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 import { User } from '../../shared/models/User';
-
-
 
 @Component({
   selector: 'app-sign-up-form',
   templateUrl: './sign-up-form.component.html',
   styleUrls: ['./sign-up-form.component.css']
 })
+
 export class SignUpFormComponent implements OnInit {
 
   @Output() newUserEvent = new EventEmitter<User>();
@@ -19,13 +19,11 @@ export class SignUpFormComponent implements OnInit {
 
   }
 
-  createNewUser(userName: string, password: string) {
-    let user: User = {
-      userName,
-      password
-    };
+  model = new User();
 
-    this.newUserEvent.emit(user);
+  onSubmit(signUpForm: NgForm) {
+    console.log(signUpForm);
+    this.newUserEvent.emit(signUpForm.value)
   }
 
 }

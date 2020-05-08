@@ -14,7 +14,6 @@ const routes: Routes = [
   { path:"signUp", component: SignUpPageComponent },
   { path:"main", component: MainPageComponent},
   { path: "", redirectTo: "/home", pathMatch: 'full'}
-  
 ];
 
 @NgModule({

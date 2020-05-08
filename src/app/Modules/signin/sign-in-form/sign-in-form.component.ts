@@ -16,10 +16,11 @@ export class SignInFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  signIn(userName: string, password: string) {
+  signIn(username: string, password: string, confirmPassword?: string) {
     let signInUser: User = {
-      userName: userName,
-      password: password
+      username,
+      password,
+      confirmPassword
     }
 
     this.signInEvent.emit(signInUser);

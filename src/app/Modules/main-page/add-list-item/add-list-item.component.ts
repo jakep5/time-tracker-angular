@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { NgForm, FormsModule } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 
 import { Task } from '../../shared/models/Task';
 
@@ -19,12 +19,6 @@ export class AddListItemComponent implements OnInit {
   }
 
   model = new Task();
-
-  formValidity: object = {
-    name: true,
-    hours: true,
-    priority: true
-  }
 
   onSubmit(addTaskForm: NgForm) {
     console.log(addTaskForm.value);

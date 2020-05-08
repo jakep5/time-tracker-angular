@@ -38,7 +38,13 @@ export class TimeListComponent implements OnInit {
 
   addNewTask(task: Task):void {
     this.toggleAddToList = !this.toggleAddToList;
-    console.log(task);
+    this.tasks.push({
+      id: 5,
+      name: task.name,
+      hours: task.hours,
+      userId: 1,
+      priority: task.priority
+    })
   }
 
   toggleShowAdd(): void {

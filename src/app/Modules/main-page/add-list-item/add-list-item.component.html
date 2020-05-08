@@ -1,15 +1,15 @@
-<div class="form-group" class="newTaskFormHolder">
+<div class="form-group newTaskFormHolder">
   <form #addTaskForm="ngForm" (ngSubmit)="addTaskForm.valid && onSubmit(addTaskForm)" class="newTaskForm">
     <div class="form-group">
       <label for="taskName">Task name:</label>
       <input 
         [(ngModel)]="model.name"
-        [ngClass]="{ 'is-invalid': addTaskForm.submitted  }"
+        [ngClass]="{ 'is-invalid': addTaskForm.submitted && name.invalid  }"
         #name="ngModel"
         type="text"
         class="form-control taskNameInput" 
-        name="taskName" 
-        id="taskName" 
+        name="name" 
+        id="name" 
         aria-describedby="helpId" 
         placeholder="" 
         required
