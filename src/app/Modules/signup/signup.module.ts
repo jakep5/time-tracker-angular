@@ -6,10 +6,11 @@ import { SignUpFormComponent } from './sign-up-form/sign-up-form.component';
 import { SignUpNavComponent } from './sign-up-nav/sign-up-nav.component';
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { FormsModule } from '@angular/forms';
+import { EqualValidator } from './Directives/equal-validator.directive';
 
 
 @NgModule({
-  declarations: [SignUpPageComponent, SignUpNavComponent, SignUpFormComponent],
+  declarations: [SignUpPageComponent, SignUpNavComponent, SignUpFormComponent, EqualValidator],
   imports: [
     CommonModule,
     SharedModule,

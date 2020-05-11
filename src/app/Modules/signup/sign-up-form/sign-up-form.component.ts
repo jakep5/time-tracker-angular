@@ -22,7 +22,6 @@ export class SignUpFormComponent implements OnInit {
   model = new User();
 
   onSubmit(signUpForm: NgForm) {
-    console.log(signUpForm);
     this.newUserEvent.emit(signUpForm.value)
   }
 
