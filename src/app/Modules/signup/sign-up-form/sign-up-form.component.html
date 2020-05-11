@@ -33,10 +33,15 @@
         id="signUpPassword" 
         placeholder="password"
         required
+        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}"
+        reverse="true"
         minlength="8"
       />
+      <div class="invalid-feedback passwordFeedback" *ngIf="signUpForm.invalid">
+        <div *ngIf="password.errors.required">Password is required</div>
+      </div>
       <div class="invalid-feedback passwordFeedback" *ngIf="signUpForm.submitted && signUpForm.invalid">
-        <div>Password is required</div>
+        <div>Password must be at least 8 characters, contain an uppercase letter, a number, and a special character</div>
       </div>
     </div>
     <div class="form-group">
@@ -52,7 +57,7 @@
         required
         validateEqual="password"
       />
-      <div class="invalid-feedback confirmPasswordFeedback" *ngIf="signUpForm.submitted && confirmPassword.invalid">
+      <div class="invalid-feedback confirmPasswordFeedback" *ngIf="confirmPassword.invalid">
         <div>Passwords must match</div>
       </div>
 
