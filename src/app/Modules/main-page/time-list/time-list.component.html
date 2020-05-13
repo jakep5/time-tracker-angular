@@ -2,7 +2,9 @@
     <h1 class="mainPageHeader">Your Tasks</h1>
 
     <button (click)="toggleShowAdd()" type="button" class="btn btn-primary btn-lg addTaskButton">Add Task</button>
-
+    
+    <app-sort-by></app-sort-by>
+   
     <app-add-list-item (newTask)="addNewTask($event)" *ngIf="toggleAddToList"></app-add-list-item>
 
     <div class="timeListHolder">
