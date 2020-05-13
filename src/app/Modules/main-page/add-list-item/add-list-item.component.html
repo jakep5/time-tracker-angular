@@ -1,52 +1,52 @@
 <div class="form-group newTaskFormHolder">
-  <form #addTaskForm="ngForm" (ngSubmit)="addTaskForm.valid && onSubmit(addTaskForm)" class="newTaskForm">
-    <div class="form-group">
-      <label for="taskName">Task name:</label>
-      <input 
-        [(ngModel)]="model.name"
-        [ngClass]="{ 'is-invalid': addTaskForm.submitted && name.invalid  }"
-        #name="ngModel"
-        type="text"
-        class="form-control taskNameInput" 
-        name="name" 
-        id="name" 
-        aria-describedby="helpId" 
-        placeholder="" 
-        required
-      />
-      <div class="invalid-feedback nameFeedback" *ngIf="addTaskForm.submitted && name.errors.required">
-        <div>Task name is required</div>
-      </div>
-    </div>
+    <form #addTaskForm="ngForm" (ngSubmit)="addTaskForm.valid && onSubmit(addTaskForm)" class="newTaskForm">
+        <div class="form-group">
+        <label for="taskName">Task name:</label>
+        <input 
+            [(ngModel)]="model.name"
+            [ngClass]="{ 'is-invalid': addTaskForm.submitted && name.invalid  }"
+            #name="ngModel"
+            type="text"
+            class="form-control taskNameInput" 
+            name="name" 
+            id="name" 
+            aria-describedby="helpId" 
+            placeholder="" 
+            required
+        />
+        <div class="invalid-feedback nameFeedback" *ngIf="addTaskForm.submitted && name.errors.required">
+            <div>Task name is required</div>
+        </div>
+        </div>
 
-    <div class="dropdown form-group">
-      <label for="priority" class="priorityLabel">Select Priority:</label>
-      <select 
-        [(ngModel)]="model.priority"
-        name="priority" 
-        [ngClass]="{ 'is-invalid': addTaskForm.submitted && priority.invalid }"
-        #priority="ngModel"
-        id="priority" 
-        required
-        class="dropDownMenu form-control" 
-        aria-labelledby="dropdownMenuButton"
-      >
-        <option value="low" class="dropdown-item" >Low</option>
-        <option value="med" class="dropdown-item" >Medium</option>
-        <option value="high" class="dropdown-item" >High</option>
-      </select>
-      <div class="invalid-feedback" *ngIf="addTaskForm.submitted && priority.invalid">
-        <div *ngIf="priority.errors.required">Must select a priority</div>
-      </div>
-    </div> 
+        <div class="dropdown form-group">
+        <label for="priority" class="priorityLabel">Select Priority:</label>
+        <select 
+            [(ngModel)]="model.priority"
+            name="priority" 
+            [ngClass]="{ 'is-invalid': addTaskForm.submitted && priority.invalid }"
+            #priority="ngModel"
+            id="priority" 
+            required
+            class="dropDownMenu form-control" 
+            aria-labelledby="dropdownMenuButton"
+        >
+            <option value="low" class="dropdown-item" >Low</option>
+            <option value="med" class="dropdown-item" >Medium</option>
+            <option value="high" class="dropdown-item" >High</option>
+        </select>
+        <div class="invalid-feedback" *ngIf="addTaskForm.submitted && priority.invalid">
+            <div *ngIf="priority.errors.required">Must select a priority</div>
+        </div>
+        </div> 
 
-    <div class="form-group">
-      <label for="hours" class="hoursLabel">Hours so far:</label>
-      <input type="number" required class="form-control hoursInput" [(ngModel)]="model.hours" #hours name="hours" placeholder="0"/>
-    </div>
-    
-    <button type="submit" (click)="addTaskForm.control.markAsTouched()" for="addTaskForm" class="btn btn-primary itemSubmitButton">Submit</button>
-  </form>
+        <div class="form-group">
+        <label for="hours" class="hoursLabel">Hours so far:</label>
+        <input type="number" required class="form-control hoursInput" [(ngModel)]="model.hours" #hours name="hours" placeholder="0"/>
+        </div>
+        
+        <button type="submit" (click)="addTaskForm.control.markAsTouched()" for="addTaskForm" class="btn btn-primary itemSubmitButton">Submit</button>
+    </form>
 </div>
 
 

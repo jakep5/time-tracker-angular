@@ -1,9 +1,11 @@
 <div class="sortByFormHolder">
-    <form class="sortByForm">
+    <form #sortByForm="ngForm" class="sortByForm" (change)="onChange(sortByForm)">
         <label for="sortBy" class="sortByLabel">Sort by:</label>
         <select 
             name="sortBy" 
             id="sortBy" 
+            #sortBy="ngModel"
+            ngModel
             class="dropDownMenu form-control" 
             aria-labelledby="dropdownMenuButton"
         >
