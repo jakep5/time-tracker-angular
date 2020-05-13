@@ -15,3 +15,7 @@ span.lineBreak {
     width: 100%;
     border-bottom: 1px solid gray;
 }
+
+.is-invalid {
+    border-color: red;
+}

@@ -5,24 +5,49 @@
     >
         <label for="taskName">Change name:</label>
         <input 
+            [(ngModel)]="model.name"
+            [ngClass]="{ 'is-invalid': editTaskForm.submitted && name.invalid }"
             type="text" 
-            name="taskName" 
+            name="name" 
+            #name="ngModel"
             id="taskName" 
             class="form-control taskNameEdit" 
             [placeholder]="task.name" 
             aria-describedby="helpId"
+            maxlength="50"
         />
+        <div class="invalid-feedback usernameFeedback" *ngIf="editTaskForm.submitted && editTaskForm.invalid">
+          <div *ngIf="name.errors.maxlength">Task name cannot exceed 50 characters</div>
+        </div>
 
         <label for="hoursEdit">Edit hours:</label>
         <input 
+            [(ngModel)]="model.hours"
+            [ngClass]="{ 'is-invalid': editTaskForm.submitted && hours.invalid }"
             type="number" 
-            name="hoursEdit" 
+            name="hours" 
             id="hoursEdit" 
-            #hoursEdit
+            #hours="ngModel"
             class="form-control taskNameEdit" 
             [placeholder]="task.hours" 
             aria-describedby="helpId"
         />
+
+        <div class="dropdown form-group">
+            <label for="priority" class="priorityLabel">Edit Priority:</label>
+            <select 
+                [(ngModel)]="model.priority"
+                name="priority" 
+                #priority="ngModel"
+                id="priority" 
+                class="dropDownMenu form-control" 
+                aria-labelledby="dropdownMenuButton"
+            >
+                <option value="low" class="dropdown-item" >Low</option>
+                <option value="med" class="dropdown-item" >Medium</option>
+                <option value="high" class="dropdown-item" >High</option>
+            </select>
+        </div> 
 
         <button 
             type="submit" 

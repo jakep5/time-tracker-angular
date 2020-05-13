@@ -45,7 +45,7 @@ export class TimeListItemComponent implements OnInit {
     }
   }
 
-  deleteItem(task: Task) {
+  deleteItem(task: Task): void {
     console.log('here');
     this.deleteItemEvent.emit(task);
   }
@@ -53,6 +53,15 @@ export class TimeListItemComponent implements OnInit {
   toggleShowEdit(): void {
     this.showEdit = !this.showEdit;
     console.log(this.showEdit)
+  }
+
+  editTask(task: Task): void {
+    this.task.name = task.name;
+    this.task.hours = task.hours;
+
+    this.showEdit = false;
+
+    console.log(this.task);
   }
 
 }

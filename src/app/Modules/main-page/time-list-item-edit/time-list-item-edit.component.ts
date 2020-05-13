@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Task } from '../../shared/models/Task';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -21,8 +22,8 @@ export class TimeListItemEditComponent implements OnInit {
 
   }
 
-  onSubmit(form):void {
-    this.editTaskEvent.emit(form.value);
+  onSubmit(editTaskForm: NgForm):void {
+    this.editTaskEvent.emit(editTaskForm.value);
   }
 
 }
