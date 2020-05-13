@@ -15,6 +15,6 @@ export class SortByComponent implements OnInit {
   }
 
   onChange(sortByForm):void {
-    this.sortByChange.emit(sortByForm.value);
+    this.sortByChange.emit(sortByForm.value.sortBy);
   }
 }
