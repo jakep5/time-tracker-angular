@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, HostListener } from '@angular/core';
 
 import { Task } from '../../shared/models/Task';
 
@@ -12,10 +12,16 @@ export class TimeListItemComponent implements OnInit {
   @Input() task: Task;
 
   @Output() deleteItemEvent = new EventEmitter<Task>();
+/* 
+  @HostListener('click', ['$event'])
+  onClick(e) {
+    this.showEdit = !this.showEdit;
+    console.log(this.showEdit);
+  } */
 
   currentStyles: {};
 
-  showTaskDetails: boolean = false;
+  showEdit: boolean = false;
 
   constructor() { }
 
@@ -44,9 +50,9 @@ export class TimeListItemComponent implements OnInit {
     this.deleteItemEvent.emit(task);
   }
 
-  toggleShowTaskDetails(): void {
-    this.showTaskDetails = !this.showTaskDetails
-    console.log(this.showTaskDetails);
+  toggleShowEdit(): void {
+    this.showEdit = !this.showEdit;
+    console.log(this.showEdit)
   }
 
 }

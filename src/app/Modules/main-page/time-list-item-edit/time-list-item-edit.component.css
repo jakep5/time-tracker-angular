@@ -1,0 +1,17 @@
+div.editItem {
+    width: 100%;
+}
+
+input.taskNameEdit {
+    width: 30%;
+}
+
+button.editTaskSubmitButton {
+    margin-top: 10px;
+    padding: 5px 10px;
+}
+
+span.lineBreak {
+    width: 100%;
+    border-bottom: 1px solid gray;
+}

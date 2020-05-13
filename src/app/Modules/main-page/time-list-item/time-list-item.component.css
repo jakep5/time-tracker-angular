@@ -10,7 +10,7 @@ li.listItem {
     width: 100%;
 }
 
-.listItem:hover {
+div.listItemHolder:hover {
     cursor: pointer;
 }
 

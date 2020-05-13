@@ -27,3 +27,7 @@ label.passwordRequirementsLabel {
     text-decoration: underline;
 }
 
+span.showPassword:hover {
+    cursor: pointer;
+}
+

@@ -1,5 +1,10 @@
-<li (click)="toggleShowTaskDetails()" class=" listItem list-group-item d-flex justify-content-between align-items-center disabled">
-    {{task.name}}
-    <span [ngStyle]="currentStyles" class="badge badge-secondary badge-pill">{{task.priority}}</span>
-</li> 
+<div class="listItemHolder" (click)="toggleShowEdit()">
+    <li class=" listItem list-group-item d-flex justify-content-between align-items-center disabled">
+        <span class="nameDisplay">{{task.name}}</span>
+        <span class="hoursDisplay">{{task.hours}} hours</span>
+        <span [ngStyle]="currentStyles" class="badge badge-secondary badge-pill">{{task.priority}}</span>
+    </li> 
+</div>
+<app-time-list-item-edit [editTaskEvent]="editTask($event)" *ngIf="showEdit" [task]="task"></app-time-list-item-edit>
 <button type="button" (click)="deleteItem(task)" class="btn btn-dark deleteButton">delete</button>
+

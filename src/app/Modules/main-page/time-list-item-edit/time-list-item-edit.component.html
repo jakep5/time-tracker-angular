@@ -1,0 +1,34 @@
+<div class="form-group editItem">
+    <form 
+        #editTaskForm="ngForm"
+        (ngSubmit)="editTaskForm.valid && onSubmit(editTaskForm)"    
+    >
+        <label for="taskName">Change name:</label>
+        <input 
+            type="text" 
+            name="taskName" 
+            id="taskName" 
+            class="form-control taskNameEdit" 
+            [placeholder]="task.name" 
+            aria-describedby="helpId"
+        />
+
+        <label for="hoursEdit">Edit hours:</label>
+        <input 
+            type="number" 
+            name="hoursEdit" 
+            id="hoursEdit" 
+            #hoursEdit
+            class="form-control taskNameEdit" 
+            [placeholder]="task.hours" 
+            aria-describedby="helpId"
+        />
+
+        <button 
+            type="submit" 
+            class="btn btn-dark editTaskSubmitButton"
+        >
+            Submit edit
+        </button>
+    </form>
+</div>
