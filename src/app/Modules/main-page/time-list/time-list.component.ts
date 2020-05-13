@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Task } from '../../shared/models/Task';
+import { CompareFunctionsService } from '../Services/compare-functions.service';
 
 @Component({
   selector: 'app-time-list',
@@ -9,7 +10,9 @@ import { Task } from '../../shared/models/Task';
 })
 export class TimeListComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private compareFunctionsService: CompareFunctionsService
+  ) { }
 
   tasks: Array<Task> = [
     {id: 1, name: "test", hours: 5, userId: 1, priority: "low"},
@@ -36,40 +39,19 @@ export class TimeListComponent implements OnInit {
     })
   }
 
-  private compareName(a, b) {
-    if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
-    if (b.name.toLowerCase() > a.name.toLowerCase()) return -1;
-  }
-
-  private comparePriority(a, b) {
-    let prioA = a.priority;
-    let prioB = b.priority;
-
-    if (prioA === 'low' && prioB === 'med') {
-      return 1;
-    } else if (prioA === 'med' && prioB === 'high') {
-      return 1;
-    } else if (prioA === 'low' && prioB === 'high') {
-      return 1;
-    } else if (prioA === 'med' && prioB === 'low') {
-      return -1;
-    } else if (prioA === 'high' && prioB === 'low') {
-      return -1;
-    } else {
-      return -1;
-    }
-  }
+  
 
   changeSortBy(sortBy: string) {
     this.sortBy = sortBy;
 
     if (this.sortBy === 'name') {
-      this.tasks.sort(this.compareName);
+      this.tasks.sort(this.compareFunctionsService.compareName);
     } else if (this.sortBy === 'priority') {
-      this.tasks.sort(this.comparePriority);
-    }
+      this.tasks.sort(this.compareFunctionsService.comparePriority);
+    } else {
+      this.tasks.sort(this.compareFunctionsService.compareHours)
+    } 
 
-    console.log(this.tasks);
   }
 
   addNewTask(task: Task):void {
