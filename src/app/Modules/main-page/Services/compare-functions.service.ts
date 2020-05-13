@@ -12,6 +12,8 @@ export class CompareFunctionsService {
     if (b.name.toLowerCase() > a.name.toLowerCase()) return -1;
   }
 
+  private sortDirection: string = 'asc';
+
   comparePriority(a, b) {
     let prioA = a.priority;
     let prioB = b.priority;
@@ -32,12 +34,29 @@ export class CompareFunctionsService {
   }
 
   compareHours(a, b) {
-    if (a.hours > b.hours) {
-      return -1;
+    if (this.sortDirection === 'asc') {
+      if (a.hours > b.hours) {
+        return -1;
+      }
+      if (a.hours < b.hours) {
+        return 1;
+      }
     }
-    if (a.hours < b.hours) {
-      return 1;
+
+    if (this.sortDirection === 'desc') {
+      if (a.hours > b.hours) {
+        return 1;
+      }
+      if (a.hours < b.hours) {
+        return -1;
+      }
     }
+    
+  }
+
+  changeSortDirection(direction: string) {
+    this.sortDirection = direction;
+    console.log(this.sortDirection);
   }
   
 }

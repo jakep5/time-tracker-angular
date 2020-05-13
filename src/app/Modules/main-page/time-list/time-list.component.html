@@ -3,7 +3,12 @@
 
     <button (click)="toggleShowAdd()" type="button" class="btn btn-primary btn-lg addTaskButton">Add Task</button>
 
-    <app-sort-by (sortByChange)="changeSortBy($event)"></app-sort-by>
+    <app-search-tasks></app-search-tasks>
+
+    <app-sort-by 
+        (sortByChange)="changeSortBy($event)"
+        (sortDirectionChange)="changeSortDirection($event)"
+    ></app-sort-by>
    
     <app-add-list-item (newTask)="addNewTask($event)" *ngIf="toggleAddToList"></app-add-list-item>
 

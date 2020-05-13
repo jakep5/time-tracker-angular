@@ -8,13 +8,23 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class SortByComponent implements OnInit {
   
   @Output() sortByChange: EventEmitter<string> = new EventEmitter();
+  @Output() sortDirectionChange: EventEmitter<string> = new EventEmitter();
 
   constructor() { }
+
 
   ngOnInit(): void {
   }
 
   onChange(sortByForm):void {
     this.sortByChange.emit(sortByForm.value.sortBy);
+  }
+
+  onAscClick(): void {
+    this.sortDirectionChange.emit('asc');
+  }
+
+  onDescClick(): void {
+    this.sortDirectionChange.emit('desc');
   }
 }

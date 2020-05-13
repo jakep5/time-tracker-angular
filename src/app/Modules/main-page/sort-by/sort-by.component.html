@@ -14,4 +14,22 @@
             <option value="hours" class="dropdown-item" >hours</option>
         </select>
     </form>
+    <div class="sortButtonHolder">
+        <button 
+            type="button" 
+            class="btn btn-primary ascButton"
+            (click)="onAscClick()"
+        >
+            Ascending
+        </button>
+
+        <button 
+            type="button" 
+            class="btn btn-primary descButton"
+            (click)="onDescClick()"
+        >
+            Descending
+        </button>
+    </div>
+    
 </div>

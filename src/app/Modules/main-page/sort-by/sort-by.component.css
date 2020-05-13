@@ -1,3 +1,12 @@
 div.sortByFormHolder {
     margin-bottom: 25px;
 }
+
+div.sortButtonHolder {
+    margin-left: 70%;
+    margin-top: 25px;
+}
+
+button.ascButton {
+    margin-right: 10px;
+}
