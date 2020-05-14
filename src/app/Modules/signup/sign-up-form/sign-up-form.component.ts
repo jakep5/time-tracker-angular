@@ -34,10 +34,10 @@ export class SignUpFormComponent implements OnInit {
     this.authService.handleSignUpAuthentication(signUpForm)
       .then(res => {
         this.router.navigate(['main'])
+        this.tokenService.saveAuthToken(res.authToken);
       })
       .catch(res => {
         this.error = res.error;
-        this.tokenService.saveAuthToken(res.authToken);
       })
   }
 
