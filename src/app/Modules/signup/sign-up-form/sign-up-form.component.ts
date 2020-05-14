@@ -1,7 +1,10 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { User } from '../../shared/models/User';
+import { AuthenticationService } from '../../shared/Services/authentication-service.service';
+import { TokenService } from '../../shared/Services/token.service';
 
 @Component({
   selector: 'app-sign-up-form',
@@ -13,7 +16,11 @@ export class SignUpFormComponent implements OnInit {
 
   @Output() newUserEvent = new EventEmitter<User>();
 
-  constructor() { }
+  constructor(
+    private authService: AuthenticationService,
+    private router: Router,
+    private tokenService: TokenService
+  ) { }
 
   ngOnInit(): void {
 
@@ -21,8 +28,17 @@ export class SignUpFormComponent implements OnInit {
 
   model = new User();
 
+  error: string = null;
+
   onSubmit(signUpForm: NgForm) {
-    this.newUserEvent.emit(signUpForm.value)
+    this.authService.handleSignUpAuthentication(signUpForm)
+      .then(res => {
+        this.router.navigate(['main'])
+      })
+      .catch(res => {
+        this.error = res.error;
+        this.tokenService.saveAuthToken(res.authToken);
+      })
   }
 
 }
