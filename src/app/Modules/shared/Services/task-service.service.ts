@@ -56,4 +56,15 @@ export class TaskService {
       })
   }
 
+  deleteTask(taskId: number): any {
+    let token = this.tokenService.getAuthToken();
+
+    return fetch(`${config.API_BASE_URL}/tasks/id/${taskId}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `bearer ${token}`
+      }
+    })
+  } 
+
 }

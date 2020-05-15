@@ -57,6 +57,8 @@ export class TimeListComponent implements OnInit {
 
   changeSortDirection(sortDirection: string) {
     this.compareFunctionsService.changeSortDirection(sortDirection);
+
+    this.changeSortBy(this.sortBy);
   }
 
   addNewTask(task: Task):void {
