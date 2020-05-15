@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 
 import { Task } from '../models/Task';
+import { config } from '../../../../config';
+import { TokenService } from './token.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,10 +17,28 @@ export class TaskService {
     {id: 4, name: "test4", hours: 5, userId: 1, priority: "med"}
   ]
 
-  constructor() { }
+  constructor(
+    private tokenService: TokenService
+  ) { }
 
-  insertTask(task: Task) {
+  addTask(task: Task) {
+
     this.tasks.push(task);
+
+    let token = this.tokenService.getAuthToken();
+    
+    return fetch(`${config.API_BASE_URL}/tasks`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `bearer ${token}`
+      },
+      body: JSON.stringify(task),
+    })
+    .then(res => 
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+    )
   }
 
 }

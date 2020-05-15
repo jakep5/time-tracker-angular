@@ -56,11 +56,11 @@ export class TimeListComponent implements OnInit {
 
   addNewTask(task: Task):void {
     this.toggleAddToList = !this.toggleAddToList;
-    this.taskService.insertTask({
+    this.taskService.addTask({
       id: 5,
       name: task.name,
       hours: task.hours,
-      userId: 1,
+      userId: parseInt(sessionStorage.getItem('userId')),
       priority: task.priority
     })
   }
