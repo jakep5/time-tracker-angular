@@ -22,10 +22,13 @@ export class TimeListComponent implements OnInit {
   sortBy: string = '';
 
   ngOnInit(): void {
-
+    this.taskService.getTasks(sessionStorage.getItem('userId'))
+      .then(res => {
+        this.tasks = res;
+      })
   }
 
-  tasks: any = this.taskService.getTasks(sessionStorage.getItem('user_id'));
+  tasks: Task[];
 
   deleteItem(taskToDelete: Task) {
     this.tasks.map(task => {
@@ -36,6 +39,8 @@ export class TimeListComponent implements OnInit {
         this.tasks.splice(deleteIndex, 1);
       }
     })
+
+    this.taskService.deleteTask(taskToDelete.id);
   }
 
   changeSortBy(sortBy: string) {
@@ -62,6 +67,11 @@ export class TimeListComponent implements OnInit {
       priority: task.priority,
       user_id: parseInt(sessionStorage.getItem('userId')),
     })
+
+    this.taskService.getTasks(sessionStorage.getItem('userId'))
+      .then(res => {
+        this.tasks = res;
+      })
   
   }
 

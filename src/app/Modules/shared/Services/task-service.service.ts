@@ -37,7 +37,6 @@ export class TaskService {
   }
   
   getTasks(userId: string): any {
-    let user_id = parseInt(userId);
 
     let token = this.tokenService.getAuthToken();
 
@@ -49,7 +48,7 @@ export class TaskService {
     })
       .then(response => {
         if (!response.ok) {
-          response.json().then(e => Promise.reject(e))
+          response.json().then(e => Promise.reject(e.message));
         } else {
           let responseJson = response.json();
           return responseJson;
