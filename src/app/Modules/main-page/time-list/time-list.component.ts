@@ -25,7 +25,7 @@ export class TimeListComponent implements OnInit {
 
   }
 
-  tasks: Task[] = this.taskService.tasks;
+  tasks: any = this.taskService.getTasks(sessionStorage.getItem('user_id'));
 
   deleteItem(taskToDelete: Task) {
     this.tasks.map(task => {
@@ -57,12 +57,12 @@ export class TimeListComponent implements OnInit {
   addNewTask(task: Task):void {
     this.toggleAddToList = !this.toggleAddToList;
     this.taskService.addTask({
-      id: 5,
       name: task.name,
       hours: task.hours,
-      userId: parseInt(sessionStorage.getItem('userId')),
-      priority: task.priority
+      priority: task.priority,
+      user_id: parseInt(sessionStorage.getItem('userId')),
     })
+  
   }
 
   toggleShowAdd(): void {

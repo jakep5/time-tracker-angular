@@ -10,12 +10,6 @@ import { TokenService } from './token.service';
 
 export class TaskService {
 
-  tasks: Array<Task> = [
-    {id: 1, name: "test", hours: 5, userId: 1, priority: "low"},
-    {id: 2, name: "test2", hours: 5, userId: 1, priority: "med"},
-    {id: 3, name: "test3", hours: 5, userId: 1, priority: "high"},
-    {id: 4, name: "test4", hours: 5, userId: 1, priority: "med"}
-  ]
 
   constructor(
     private tokenService: TokenService
@@ -23,22 +17,44 @@ export class TaskService {
 
   addTask(task: Task) {
 
-    this.tasks.push(task);
+    console.log(JSON.stringify(task));
 
     let token = this.tokenService.getAuthToken();
     
     return fetch(`${config.API_BASE_URL}/tasks`, {
       method: 'POST',
       headers: {
-        'Authorization': `bearer ${token}`
+        'Authorization': `bearer ${token}`,
+        'content-type': 'application/json'
       },
-      body: JSON.stringify(task),
+      body: JSON.stringify(task)
     })
     .then(res => 
         (!res.ok)
           ? res.json().then(e => Promise.reject(e))
           : res.json()
     )
+  }
+  
+  getTasks(userId: string): any {
+    let user_id = parseInt(userId);
+
+    let token = this.tokenService.getAuthToken();
+
+    return fetch(`${config.API_BASE_URL}/tasks`, {
+      headers: {
+        'Authorization': `bearer ${token}`,
+        'user_id': userId
+      }
+    })
+      .then(response => {
+        if (!response.ok) {
+          response.json().then(e => Promise.reject(e))
+        } else {
+          let responseJson = response.json();
+          return responseJson;
+        }
+      })
   }
 
 }
