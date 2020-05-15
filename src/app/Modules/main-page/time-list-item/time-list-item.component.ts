@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, HostListener } from '@angular/core';
 
 import { Task } from '../../shared/models/Task';
+import { TaskService } from '../../shared/Services/task-service.service';
 
 
 @Component({
@@ -23,7 +24,9 @@ export class TimeListItemComponent implements OnInit {
 
   showEdit: boolean = false;
 
-  constructor() { }
+  constructor(
+    private taskService: TaskService
+  ) { }
 
   ngOnInit(): void {
     this.setCurrentStyles();
@@ -56,9 +59,9 @@ export class TimeListItemComponent implements OnInit {
   }
 
   editTask(task: Task): void {
-    this.task.name = task.name;
+    /* this.task.name = task.name;
     this.task.hours = task.hours;
-    this.task.priority = task.priority;
+    this.task.priority = task.priority; */
     this.setCurrentStyles();
 
     this.showEdit = false;

@@ -65,6 +65,33 @@ export class TaskService {
         'Authorization': `bearer ${token}`
       }
     })
-  } 
+  }
+  
+  editTask(task: Task): any {
+    let token = this.tokenService.getAuthToken();
+
+    let taskEdit = {
+      name: task.name,
+      hours: task.hours,
+      priority: task.priority
+    }
+
+    return fetch(`${config.API_BASE_URL}/tasks/id/${task.id}`, {
+      method: 'PATCH',
+      headers: {
+        'Authorization': `bearer ${token}`,
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(taskEdit)
+    })
+      .then(response => {
+        if (!response.ok) {
+          response.json().then(e => Promise.reject(e.message))
+        } else {
+          let responseJson = response.json();
+          return responseJson;
+        }
+      })
+  }
 
 }
