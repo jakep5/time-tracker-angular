@@ -23,6 +23,14 @@ export class TimeListItemEditComponent implements OnInit {
   }
 
   onSubmit(editTaskForm: NgForm):void {
+
+    this.task.name = editTaskForm.value.name;
+    this.task.hours = editTaskForm.value.hours;
+
+    if (editTaskForm.value.priority !== undefined) {
+      this.task.priority = editTaskForm.value.priority;
+    } 
+
     this.editTaskEvent.emit(editTaskForm.value);
   }
 
