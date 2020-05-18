@@ -1,18 +1,12 @@
 <div class="form-group">
-    <form 
-        #searchTaskForm="ngForm" 
-        class="searchTaskForm" 
-        (keyup)="onChange(searchTaskForm)"
+      <input 
+        type="text" 
+        class="form-control" 
+        #taskSearch
+        name="taskSearch" 
+        id="taskSearch"
+        (input)="search(taskSearch.value)" 
+        aria-describedby="helpId" 
+        placeholder="search tasks"
     >
-        <input 
-            type="text" 
-            name="taskName" 
-            id="taskName" 
-            #name="ngModel"
-            ngModel
-            class="form-control" 
-            placeholder="searchForTask" 
-            aria-describedby="helpId"
-        >
-    </form>
 </div>

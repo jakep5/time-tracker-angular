@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { User } from '../../shared/models/User';
 import { AuthenticationService } from '../../shared/Services/authentication-service.service';
 import { TokenService } from '../../shared/Services/token.service';
+import { UserService } from '../../shared/Services/user.service';
 
 @Component({
   selector: 'app-sign-in-page',
@@ -15,13 +16,17 @@ export class SignInPageComponent implements OnInit {
   constructor(
     private authService: AuthenticationService,
     private tokenService: TokenService,
-    private router: Router
+    private router: Router,
+    private userService: UserService
   ) { }
 
   ngOnInit(): void {
   }
 
   signInUser(user: User) { 
+
+    this.userService.changeUser(user.username);
+
     this.authService.handleSignInAuthentication(user)
       .then(res => {
         this.tokenService.saveAuthToken(res.authToken);

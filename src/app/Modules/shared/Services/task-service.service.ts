@@ -1,4 +1,8 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+import { Observable, of} from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
 
 import { Task } from '../models/Task';
 import { config } from '../../../../config';
@@ -12,7 +16,8 @@ export class TaskService {
 
 
   constructor(
-    private tokenService: TokenService
+    private tokenService: TokenService,
+    private http: HttpClient
   ) { }
 
   addTask(task: Task) {
@@ -92,6 +97,54 @@ export class TaskService {
           return responseJson;
         }
       })
+  }
+
+  searchTasks(term: string): Observable<Task[]> {
+    if (!term.trim()) {
+      return of([]);
+    }
+
+    let userId = sessionStorage.getItem('user_id');
+
+    let token = this.tokenService.getAuthToken();
+
+    console.log('here');
+
+    return Observable.create(observer => {
+      fetch(`${config.API_BASE_URL}/tasks/search/?name=${term}`, {
+        headers: {
+          'Authorization': `bearer ${token}`,
+          'user_id': userId
+        }
+      })
+        .then(response => {
+          return response.json();
+        })
+        .then(body => {
+          observer.next(body);
+          
+          observer.complete();
+        })
+
+        .catch(err => observer.error(err));
+    })
+    /* return fetch(`${config.API_BASE_URL}/tasks/search/?name=${term}`, {
+      headers: {
+        'Authorization': `bearer ${token}`,
+        'user_id': userId
+      }
+        .then(response => response.json())
+        .then(tasks => {
+          var result = 
+        })
+    }) */
+
+   /*  return this.http.get<Task[]>(`${config.API_BASE_URL}/tasks/search/?name=${term}`).pipe(
+      tap(tasks => tasks.length 
+        ? console.log(`found tasks matching ${term}`)
+        : console.log(`no tasks found matching ${term}`)  ,
+      )
+    ) */
   }
 
 }

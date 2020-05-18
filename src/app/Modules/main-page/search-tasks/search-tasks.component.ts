@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+
 import { Subject, Observable } from 'rxjs';
-import { NgForm } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 
 import { Task } from '../../shared/models/Task';
@@ -12,24 +12,31 @@ import { TaskService } from '../../shared/Services/task-service.service';
   styleUrls: ['./search-tasks.component.css']
 })
 export class SearchTasksComponent implements OnInit {
-  tasks$: Observable<Task[]>;
 
-  @Output() taskNameSearchEmitter: EventEmitter<string> = new EventEmitter();
-
-  private searchTerms = new Subject<string>();
-
+/*   @Output() taskNameSearchEmitter: EventEmitter<string> = new EventEmitter();
+ */
   constructor(
     private taskService: TaskService
   ) {
   }
 
+  private searchTerms = new Subject<string>();
+  tasks$: Observable<Task[]>;
+
   ngOnInit(): void {
+    this.tasks$ = this.searchTerms.pipe(
+      debounceTime(300),
+
+      distinctUntilChanged(),
+
+      switchMap((term: string) => this.taskService.searchTasks(term))
+    )
   }
 
-  onChange(searchTaskForm: NgForm) {
-    console.log(searchTaskForm.value.taskName);
+  search(term: string): void {
+    this.searchTerms.next(term);
 
-    this.searchTerms.next(searchTaskForm.value.taskName);
+    this.taskService.searchTasks(term)
   }
 
 }

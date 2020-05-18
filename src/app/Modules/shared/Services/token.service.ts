@@ -24,6 +24,6 @@ export class TokenService {
   }
 
   getAuthToken(): string {
-    return sessionStorage.getItem('time-tracker-token key');
+    return sessionStorage.getItem('time-tracker-token-key');
   }
 }

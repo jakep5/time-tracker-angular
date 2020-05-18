@@ -5,6 +5,7 @@ import { HomepageComponent } from './Modules/homepage/homepage-component/homepag
 import { SignInPageComponent } from './Modules/signin/sign-in-page/sign-in-page.component';
 import { SignUpPageComponent } from './Modules/signup/sign-up-page/sign-up-page.component';
 import { MainPageComponent } from './Modules/main-page/main-page/main-page.component';
+import { ProfilePageComponent } from './Modules/profile/profile-page/profile-page.component';
 
 
 
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path:"signIn", component: SignInPageComponent },
   { path:"signUp", component: SignUpPageComponent },
   { path:"main", component: MainPageComponent},
+  { path: "profile", component: ProfilePageComponent},
   { path: "", redirectTo: "/home", pathMatch: 'full'}
 ];
 
