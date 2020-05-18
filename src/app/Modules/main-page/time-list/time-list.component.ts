@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Task } from '../../shared/models/Task';
 import { CompareFunctionsService } from '../Services/compare-functions.service';
 import { TaskService } from '../../shared/Services/task-service.service';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-time-list',
@@ -13,7 +14,7 @@ export class TimeListComponent implements OnInit {
 
   constructor(
     private compareFunctionsService: CompareFunctionsService,
-    private taskService: TaskService
+    private taskService: TaskService,
   ) { }
 
  
@@ -59,6 +60,20 @@ export class TimeListComponent implements OnInit {
     this.compareFunctionsService.changeSortDirection(sortDirection);
 
     this.changeSortBy(this.sortBy);
+  }
+
+  changeCharSort(char: string) {
+    console.log(char);
+
+    console.log(this.tasks);
+
+    if (char === 'reset') {
+      this.tasks = this.taskService.getTasks(sessionStorage.getItem('userId'))
+    } else {
+      let filteredTasks = this.tasks.filter(item => item.name.startsWith(char))
+
+      this.tasks = filteredTasks;
+    }
   }
 
   addNewTask(task: Task):void {

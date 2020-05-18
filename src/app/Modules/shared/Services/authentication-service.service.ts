@@ -3,13 +3,16 @@ import { NgForm } from '@angular/forms';
 
 import { config } from '../../../../config';
 import { User } from '../models/User';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   handleSignUpAuthentication(signUpForm: NgForm): Promise<User> {
     let newUser = {
@@ -53,6 +56,13 @@ export class AuthenticationService {
           ? res.json() .then(e => Promise.reject(e))
           : res.json()
       )
+  }
+
+  signOut(): void {
+    sessionStorage.clear();
+    localStorage.clear();
+
+    this.router.navigate(['home']);
   }
 
 }

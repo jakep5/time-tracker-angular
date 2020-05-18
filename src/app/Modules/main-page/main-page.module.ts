@@ -10,6 +10,7 @@ import { TimeListItemEditComponent } from './time-list-item-edit/time-list-item-
 import { SortByComponent } from './sort-by/sort-by.component';
 import { CompareFunctionsService } from './Services/compare-functions.service';
 import { SearchTasksComponent } from './search-tasks/search-tasks.component';
+import { AlphabeticalSortComponent } from './alphabetical-sort/alphabetical-sort.component';
 
 
 
@@ -21,7 +22,7 @@ import { SearchTasksComponent } from './search-tasks/search-tasks.component';
     TimeListItemComponent, 
     AddListItemComponent, 
     TimeListItemEditComponent, 
-    SortByComponent, SearchTasksComponent
+    SortByComponent, SearchTasksComponent, AlphabeticalSortComponent
   ],
   imports: [
     CommonModule,

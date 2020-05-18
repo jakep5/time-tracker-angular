@@ -1,0 +1,12 @@
+button.letterButton {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    color: #007BFF;
+}
+
+div.buttonsHolder {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}

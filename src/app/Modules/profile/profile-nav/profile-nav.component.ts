@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../../shared/Services/authentication-service.service';
 
 @Component({
   selector: 'app-profile-nav',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileNavComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public authService: AuthenticationService
+  ) { }
 
   ngOnInit(): void {
   }

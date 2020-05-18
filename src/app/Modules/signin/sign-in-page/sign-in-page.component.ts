@@ -25,8 +25,8 @@ export class SignInPageComponent implements OnInit {
 
   signInUser(user: User) { 
 
-    this.userService.changeUser(user.username);
-
+    localStorage.setItem('currentUser', user.username);
+    
     this.authService.handleSignInAuthentication(user)
       .then(res => {
         this.tokenService.saveAuthToken(res.authToken);

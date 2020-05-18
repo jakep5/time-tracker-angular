@@ -1,4 +1,4 @@
-<div class="taskList">
+<div class="taskList" id="taskList">
     <h1 class="mainPageHeader">Your Tasks</h1>
 
     <button (click)="toggleShowAdd()" type="button" class="btn btn-primary btn-lg addTaskButton">Add Task</button>
@@ -9,8 +9,10 @@
         (sortByChange)="changeSortBy($event)"
         (sortDirectionChange)="changeSortDirection($event)"
     ></app-sort-by>
-   
+  
     <app-add-list-item (newTask)="addNewTask($event)" *ngIf="toggleAddToList"></app-add-list-item>
+
+    <app-alphabetical-sort (charSortChange)="changeCharSort($event)"></app-alphabetical-sort>
 
     <div class="timeListHolder">
         <ul class="list-group">

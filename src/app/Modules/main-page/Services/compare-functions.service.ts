@@ -25,7 +25,6 @@ export class CompareFunctionsService {
    
   }
 
-
   comparePriority = (a, b) => {
     this.sortType = 'priority';
     let prioA = a.priority;

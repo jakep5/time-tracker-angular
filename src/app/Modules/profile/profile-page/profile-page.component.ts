@@ -9,17 +9,13 @@ import { UserService } from '../../shared/Services/user.service';
 export class ProfilePageComponent implements OnInit {
 
   constructor(
-    public userService: UserService
+    private userService: UserService
   ) { }
 
-  currentUser: string;
+  currentUser: string = localStorage.getItem('currentUser');
 
   ngOnInit(): void {
 
-    this.userService.currentUser.subscribe(user => this.currentUser = user);
-
-    console.log(this.currentUser);
-    
   }
 
 }
