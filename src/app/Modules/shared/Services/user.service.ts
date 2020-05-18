@@ -45,7 +45,17 @@ export class UserService {
 
     console.log(hoursLogged);
 
-    return '';
+    if (hoursLogged < 5) {
+      return 'novice';
+    } else if (hoursLogged >= 5 && hoursLogged < 30) {
+      return 'apprentice'
+    } else if (hoursLogged >= 30 && hoursLogged < 50) {
+      return 'adept'
+    } else if (hoursLogged >= 50 && hoursLogged < 100) {
+      return 'expert'
+    } else {
+      return 'master'
+    }; 
 
    /*  if (tasks < 10) {
       level = 'Rookie';
