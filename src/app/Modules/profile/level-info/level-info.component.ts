@@ -21,10 +21,8 @@ export class LevelInfoComponent implements OnInit {
 
   tasks: Array<Task>
   userLevel: string;
-  barTotal: string;
-
+  barTotal: number;
   levelProgress: number;
-
 
   ngOnInit(): void {
     this.tasks = this.taskService.getTasks(sessionStorage.getItem('userId'))
@@ -48,6 +46,10 @@ export class LevelInfoComponent implements OnInit {
     } else {
       barTotal = 1000;
     }
+
+    console.log(this.userHours)
+
+    this.barTotal = barTotal;
     
     this.levelProgress = (this.userHours / barTotal) * 100;
     
