@@ -19,17 +19,13 @@ export class ProfilePageComponent implements OnInit {
   
   tasks: Array<Task> = this.taskService.getTasks(sessionStorage.getItem('userId'))
 
-  userLevel: string;
-
   userHours: number = 0;
   
   ngOnInit(): void {
-    this.tasks = this.taskService.getTasks(sessionStorage.getItem('userId'))
+    this.tasks = this.taskService.getTasks(sessionStorage.getItem('userId'))  
       .then(tasks => {
-        this.userLevel = this.userService.calculateUserLevel(tasks)
-        this.userHours = this.userService.calculateTotalHours(tasks);
-      })
-
+        this.userHours = this.userService.calculateTotalHours(tasks)
+      });
   }
 
 
