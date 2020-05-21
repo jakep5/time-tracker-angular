@@ -1,0 +1,13 @@
+div.progressBar {
+    display: block;
+    width: 100%;
+    height: 10px;
+    border: 1px solid black;
+    margin-bottom: 5px;
+}
+
+div.innerProgressBar {
+    border: none;
+    background-color: rgba(0, 153, 255, 0.986);
+    height: 8px;
+}
