@@ -1,3 +1,12 @@
 <div class="buttonsHolder">
-    <button (click)="setSortLetter(letter)" class="letterButton" *ngFor="let letter of alphabet" name={{letter}}>{{letter}}</button>
+    <app-alphabetical-sort-button [letter]="letterInput" (click)="setSortLetter(letterInput)" class="letterButton" *ngFor="let letterInput of alphabet"></app-alphabetical-sort-button>
+</div>
+
+<div class="alphabetSelectHolder">
+    <div class="form-group">
+      <label for="alphabetSelect">Select letter to filter by:</label>
+      <select (change)="setSortLetterMobile($event)" class="form-control" name="alphabetSelect" id="">
+        <option *ngFor="let letter of alphabet">{{letter}}</option>
+      </select>
+    </div>
 </div>

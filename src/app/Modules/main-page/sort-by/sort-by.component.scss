@@ -1,12 +1,24 @@
+@use "../../../../../mixins.scss";
+
 div.sortByFormHolder {
     margin-bottom: 25px;
 }
 
 div.sortButtonHolder {
-    margin-left: 70%;
-    margin-top: 25px;
+
+    margin-top: 10px;
+
+    @include mixins.breakpoint(value) {
+        margin-left: 70%;
+        margin-top: 25px;
+    }
+    
 }
 
 button.ascButton {
-    margin-right: 10px;
+
+
+    @include mixins.breakpoint(tablet) {
+        margin-right: 10px;
+    }
 }

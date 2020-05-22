@@ -64,15 +64,20 @@ export class TimeListComponent implements OnInit {
   changeCharSort(char: string) {
     console.log(char);
 
-    console.log(this.tasks);
+    this.taskService.getTasks(sessionStorage.getItem('userId'))
+      .then(tasks => {
+        this.tasks = tasks;
 
-    if (char === 'reset') {
-      this.tasks = this.taskService.getTasks(sessionStorage.getItem('userId'))
-    } else {
-      let filteredTasks = this.tasks.filter(item => item.name.startsWith(char))
+        if (char === 'reset') {
+          this.taskService.getTasks(sessionStorage.getItem('userId'))
+            .then(tasks => this.tasks = tasks)
+        } else {
+          let filteredTasks = this.tasks.filter(item => item.name.startsWith(char))
 
-      this.tasks = filteredTasks;
-    }
+          this.tasks = filteredTasks;
+        }
+      })
+    
   }
 
   addNewTask(task: Task):void {

@@ -1,13 +1,17 @@
-button.letterButton {
-    border: none;
-    background-color: transparent;
-    padding: 0;
-    color: #007BFF;
-}
+@use "../../../../../mixins.scss";
 
 div.buttonsHolder {
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    margin-bottom: 20px;
+    display: none;
+    @include mixins.breakpoint(tablet) {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        margin-bottom: 20px;
+    }
+}
+
+div.alphabetSelectHolder {
+    @include mixins.breakpoint(tablet) {
+        display: none;
+    }
 }
