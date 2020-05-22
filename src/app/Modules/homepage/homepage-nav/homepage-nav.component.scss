@@ -1,0 +1,7 @@
+@use "../../../../../mixins.scss";
+
+nav.homepageNav {
+    width: 100%;
+    @include mixins.breakpoint(tablet) {
+    }
+}

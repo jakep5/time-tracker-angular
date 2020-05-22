@@ -1,3 +1,36 @@
+@use "../../../../../mixins.scss";
+
+* {
+    color: white;
+}
+
 p.moreInfo {
     cursor: pointer;
+}
+
+div.jumbotron {
+    width: 100%;
+    text-align: center;
+    @include mixins.breakpoint(tablet) {
+        text-align: initial;
+    }
+}
+
+h1.siteTitle {
+    color: white;
+    display: inline-block;
+    font-size: 65px;
+    @include mixins.breakpoint(tablet) {
+        font-size: 90px;
+    }
+}
+
+p.lead {
+    color: white;
+}
+
+a.signInButton {
+    padding: 4px 8px;
+    display: inline-block;
+    position: relative;
 }
