@@ -1,5 +1,11 @@
+@use '../../../../../mixins.scss';
+
 div.signUpWrapper {
     width: 100%;
     text-align: center;
+}
+
+h1.signUpHeader {
+    margin-top: 30px;
 }
 

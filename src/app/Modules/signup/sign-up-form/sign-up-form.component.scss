@@ -1,12 +1,25 @@
+@use '../../../../../mixins.scss';
+
 div.form-group {
-    width: 50%;
-    margin-top: 5%;
-    margin-left: 25%;
+    width: 90%;
+    margin: auto;
+    @include mixins.breakpoint(tablet) {
+        width: 50%;
+        margin-top: 5%;
+        text-align: center;
+    }
+}
+
+div.passwordRequirements {
+    width: 100%;
+    display: inline-block;
     text-align: center;
+    position: relative;
+    top: 30px;
 }
 
 button.btn-primary {
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 label {
@@ -14,8 +27,24 @@ label {
     right: 43%;
 }
 
+input.usernameInput {
+    display: block;
+}
+
+form.signUpForm {
+    @include mixins.breakpoint(tablet) {
+        position: relative;
+        bottom: 35px;
+    }
+}
+
 input.passwordInput, input.confirmPasswordInput {
-    margin-top: 15px;
+    margin-top: 5px;
+    display: block;
+}
+
+label.confirmPasswordLabel {
+    right: 37%;
 }
 
 .is-invalid {
@@ -23,8 +52,18 @@ input.passwordInput, input.confirmPasswordInput {
 }
 
 label.passwordRequirementsLabel {
-    margin-left: 25%;
+    display: inline-block;
     text-decoration: underline;
+    left: 0%;
+}
+
+ul#passwordRequirements {
+    list-style-type: none;
+}
+
+ul#passwordRequirements li {
+    position: relative;
+    right: 20px;
 }
 
 span.showPassword:hover {

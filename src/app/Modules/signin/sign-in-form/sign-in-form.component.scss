@@ -1,8 +1,21 @@
-div.signInFormHolder {
-    width: 80%;
+@use '../../../../../mixins.scss';
 
-    @media (min-width: 480px) {
-        width: 50%;
+div.signInFormHolder {
+    display: inline-block;
+    margin-top: 50px;
+    width: 80%;
+    @include mixins.breakpoint(tablet) {
+        width: 30%;
     }
 }
+
+label.passwordLabel {
+    margin-top: 30px;
+}
+
+button.signInSubmit {
+    margin-top: 30px;
+}
+
+
 
