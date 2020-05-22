@@ -6,7 +6,7 @@ import { Task } from '../../shared/models/Task';
 @Component({
   selector: 'app-add-list-item',
   templateUrl: './add-list-item.component.html',
-  styleUrls: ['./add-list-item.component.css']
+  styleUrls: ['./add-list-item.component.scss']
 })
 export class AddListItemComponent implements OnInit {
 

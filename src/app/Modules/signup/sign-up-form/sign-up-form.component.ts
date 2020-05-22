@@ -9,7 +9,7 @@ import { TokenService } from '../../shared/Services/token.service';
 @Component({
   selector: 'app-sign-up-form',
   templateUrl: './sign-up-form.component.html',
-  styleUrls: ['./sign-up-form.component.css']
+  styleUrls: ['./sign-up-form.component.scss']
 })
 
 export class SignUpFormComponent implements OnInit {

@@ -5,7 +5,7 @@ import { Task } from '../../shared/models/Task';
 @Component({
   selector: 'app-top-task-item',
   templateUrl: './top-task-item.component.html',
-  styleUrls: ['./top-task-item.component.css']
+  styleUrls: ['./top-task-item.component.scss']
 })
 export class TopTaskItemComponent implements OnInit {
 

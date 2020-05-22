@@ -3,7 +3,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-alphabetical-sort',
   templateUrl: './alphabetical-sort.component.html',
-  styleUrls: ['./alphabetical-sort.component.css']
+  styleUrls: ['./alphabetical-sort.component.scss']
 })
 export class AlphabeticalSortComponent implements OnInit {
 

@@ -4,7 +4,7 @@ import { AuthenticationService } from '../../shared/Services/authentication-serv
 @Component({
   selector: 'app-profile-nav',
   templateUrl: './profile-nav.component.html',
-  styleUrls: ['./profile-nav.component.css']
+  styleUrls: ['./profile-nav.component.scss']
 })
 export class ProfileNavComponent implements OnInit {
 

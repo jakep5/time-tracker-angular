@@ -6,7 +6,7 @@ import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-time-list-item-edit',
   templateUrl: './time-list-item-edit.component.html',
-  styleUrls: ['./time-list-item-edit.component.css']
+  styleUrls: ['./time-list-item-edit.component.scss']
 })
 export class TimeListItemEditComponent implements OnInit {
 

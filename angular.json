@@ -123,6 +123,12 @@
           }
         }
       }
-    }},
-  "defaultProject": "time-tracker-final"
+    }
+  },
+  "defaultProject": "time-tracker-final",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }

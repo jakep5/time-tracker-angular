@@ -9,7 +9,7 @@ import { TaskService } from '../../shared/Services/task-service.service';
 @Component({
   selector: 'app-search-tasks',
   templateUrl: './search-tasks.component.html',
-  styleUrls: ['./search-tasks.component.css']
+  styleUrls: ['./search-tasks.component.scss']
 })
 export class SearchTasksComponent implements OnInit {
 

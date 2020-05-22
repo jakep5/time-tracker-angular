@@ -7,7 +7,7 @@ import { TaskService } from '../../shared/Services/task-service.service';
 @Component({
   selector: 'app-time-list',
   templateUrl: './time-list.component.html',
-  styleUrls: ['./time-list.component.css']
+  styleUrls: ['./time-list.component.scss']
 })
 export class TimeListComponent implements OnInit {
 

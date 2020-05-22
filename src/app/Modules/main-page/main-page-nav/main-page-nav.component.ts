@@ -4,7 +4,7 @@ import { AuthenticationService } from '../../shared/Services/authentication-serv
 @Component({
   selector: 'app-main-page-nav',
   templateUrl: './main-page-nav.component.html',
-  styleUrls: ['./main-page-nav.component.css']
+  styleUrls: ['./main-page-nav.component.scss']
 })
 export class MainPageNavComponent implements OnInit {
 

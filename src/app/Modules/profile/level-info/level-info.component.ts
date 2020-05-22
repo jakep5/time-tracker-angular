@@ -7,7 +7,7 @@ import { ProgressBar } from 'progress';
 @Component({
   selector: 'app-level-info',
   templateUrl: './level-info.component.html',
-  styleUrls: ['./level-info.component.css']
+  styleUrls: ['./level-info.component.scss']
 })
 export class LevelInfoComponent implements OnInit {
 
