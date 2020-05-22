@@ -8,7 +8,6 @@ import { AddListItemComponent } from './add-list-item/add-list-item.component';
 import { FormsModule } from '@angular/forms';
 import { TimeListItemEditComponent } from './time-list-item-edit/time-list-item-edit.component';
 import { SortByComponent } from './sort-by/sort-by.component';
-import { CompareFunctionsService } from './Services/compare-functions.service';
 import { SearchTasksComponent } from './search-tasks/search-tasks.component';
 import { AlphabeticalSortComponent } from './alphabetical-sort/alphabetical-sort.component';
 
@@ -22,7 +21,9 @@ import { AlphabeticalSortComponent } from './alphabetical-sort/alphabetical-sort
     TimeListItemComponent, 
     AddListItemComponent, 
     TimeListItemEditComponent, 
-    SortByComponent, SearchTasksComponent, AlphabeticalSortComponent
+    SortByComponent, 
+    SearchTasksComponent, 
+    AlphabeticalSortComponent
   ],
   imports: [
     CommonModule,

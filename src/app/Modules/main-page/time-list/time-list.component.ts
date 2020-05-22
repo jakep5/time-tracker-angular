@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Task } from '../../shared/models/Task';
-import { CompareFunctionsService } from '../Services/compare-functions.service';
+import { CompareFunctionsService } from '../../shared/Services/compare-functions.service';
 import { TaskService } from '../../shared/Services/task-service.service';
-import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-time-list',

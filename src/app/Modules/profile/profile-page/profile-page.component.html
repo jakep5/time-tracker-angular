@@ -5,13 +5,14 @@
         <h1 class="display-3">Hello, {{currentUser}}</h1>
         <p class="lead">Here are your stats:</p>
         <hr class="my-2">
-        <p>More info</p>'
         <h2>Hours: {{userHours}} </h2>
 
         <app-level-info [userHours]="userHours"></app-level-info>
 
+        <app-top-tasks ></app-top-tasks>
+
         <p class="lead">
-            <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
+            <a class="btn btn-primary btn-lg returnButton" (click)="navigateToMain()" href="Jumbo action link" role="button">Return to task list</a>
         </p>
     </div>
 </div>
