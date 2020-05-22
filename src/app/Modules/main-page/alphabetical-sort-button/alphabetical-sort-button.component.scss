@@ -4,3 +4,10 @@ button.letterButton {
     padding: 0;
     color: #007BFF;
 }
+
+button.letterButtonActive {
+    border: 1px solid white;
+    background-color: transparent;
+    padding: 1;
+    color: #007BFF;
+}

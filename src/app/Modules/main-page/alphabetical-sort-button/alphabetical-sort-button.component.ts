@@ -9,9 +9,14 @@ export class AlphabeticalSortButtonComponent implements OnInit {
 
   @Input() letter: string;
 
+  active: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  setStyles() {
+    this.active = true;
+  }
 }

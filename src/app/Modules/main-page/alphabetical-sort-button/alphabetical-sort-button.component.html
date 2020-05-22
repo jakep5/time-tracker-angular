@@ -1,1 +1,1 @@
-<button class="letterButton"name={{letter}}>{{letter}}</button>
+<button [ngClass]="active ? 'letterButtonActive' : 'letterButton'" (click)="setStyles()"name={{letter}}>{{letter}}</button>

@@ -1,0 +1,16 @@
+@use "../../../../../mixins.scss";
+
+div.moreInfoHolder {
+    background-color: rgb(61, 64, 66);
+
+    @include mixins.breakpoint (tablet) {
+        display: block;
+        width: 50%;
+        height: 200px;
+        box-shadow: inset 0px 0px 3px 3px rgba(0, 0, 0, 0.445);
+    }
+}
+
+ul.moreInfoListTwo {
+    padding-left: 20px;
+}
