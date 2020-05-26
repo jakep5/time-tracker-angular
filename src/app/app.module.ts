@@ -12,6 +12,7 @@ import { SignupModule } from './Modules/signup/signup.module';
 import { MainPageModule } from './Modules/main-page/main-page.module';
 import { ProfileModule } from './Modules/profile/profile.module';
 import { UserService } from './Modules/shared/Services/user.service';
+import { AboutPageModule } from './Modules/aboutpage/about-page.module';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { UserService } from './Modules/shared/Services/user.service';
     MainPageModule,
     FormsModule,
     ProfileModule,
-    HttpClientModule
+    HttpClientModule,
+    AboutPageModule
   ],
   providers: [
     UserService

@@ -1,7 +1,7 @@
 <div class="form-group newTaskFormHolder">
     <form #addTaskForm="ngForm" (ngSubmit)="addTaskForm.valid && onSubmit(addTaskForm)" class="newTaskForm">
         <div class="form-group">
-        <label for="taskName">Task name:</label>
+        <label class="taskNameLabel" for="taskName">Task name:</label>
         <input 
             [(ngModel)]="model.name"
             [ngClass]="{ 'is-invalid': addTaskForm.submitted && name.invalid  }"

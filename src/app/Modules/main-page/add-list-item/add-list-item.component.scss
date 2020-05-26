@@ -1,29 +1,56 @@
+@use "../../../../../mixins.scss";
+
 input.taskNameInput {
     width: 60%;
     margin-left: 20%;
 }
 
 label {
-    position: relative;
-    left: 20%;
+    left: 0%;
+    @include mixins.breakpoint(tablet) {
+        position: relative;
+        left: 20%;
+    }
 }
 
 label.priorityLabel {
     left: 0%;
+    display: block;
+
+    @include mixins.breakpoint(tablet) {
+        display: initial;
+    }
 }
 
 div.newTaskFormHolder {
     margin-bottom: 50px;
+    text-align: center;
+    
+    @include mixins.breakpoint(tablet) {
+        text-align: inherit;
+    }
 }
 
 div.dropdown {
-    width: 30%;
-    left: 20%;
-    top: 20px;
+
+    width: 100%;
+    left: 0%;
+    text-align: center;
+
+    @include mixins.breakpoint(tablet) {
+        width: 30%;
+        left: 20%;
+        top: 20px;
+    }
 }
 
 select.dropDownMenu {
     width: 60%;
+    display: inline-block;
+
+    @include mixins.breakpoint(tablet) {
+        width: 60%;
+    }
 }
 
 button.itemSubmitButton {
@@ -37,8 +64,12 @@ label.hoursLabel {
 }
 
 input.hoursInput {
-    width: 20%;
-    margin-left: 20%;
+    margin-left: 0%;
+    @include mixins.breakpoint(tablet) {
+        width: 20%;
+        margin-left: 20%;
+    }
+    
 }
 
 .is-invalid {

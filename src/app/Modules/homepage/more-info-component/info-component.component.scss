@@ -2,15 +2,42 @@
 
 div.moreInfoHolder {
     background-color: rgb(61, 64, 66);
+    text-align: center;
+    height: 250px;
 
-    @include mixins.breakpoint (tablet) {
+    @include mixins.breakpoint(tablet) {
+        text-align: initial;
         display: block;
         width: 50%;
-        height: 200px;
+        height: 240px;
         box-shadow: inset 0px 0px 3px 3px rgba(0, 0, 0, 0.445);
     }
 }
 
+ul.moreInfoList {
+    padding-left: 0;
+    list-style-type: initial;
+
+    @include mixins.breakpoint(tablet) {
+        list-style-type: initial;
+    }
+}
+
+ul.moreInfoList, label.moreInfoListLabel {
+
+    margin-top: 10px;
+    @include mixins.breakpoint(tablet) {
+        margin-left: 20px;
+        margin-top: 10px;
+    }
+    
+}
+
 ul.moreInfoListTwo {
-    padding-left: 20px;
+    padding-left: 0;
+    list-style-type: none;
+    @include mixins.breakpoint(tablet) {
+        padding-left: 20px;
+        list-style-type: initial;
+    }
 }
