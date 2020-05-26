@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Task } from '../../shared/models/Task';
 import { CompareFunctionsService } from '../../shared/Services/compare-functions.service';
 import { TaskService } from '../../shared/Services/task-service.service';
+import { Observable, Subject } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-time-list',
@@ -11,6 +13,9 @@ import { TaskService } from '../../shared/Services/task-service.service';
 })
 export class TimeListComponent implements OnInit {
 
+  results$: Observable<any>;
+  private subject: Subject<string> = new Subject();
+  
   constructor(
     private compareFunctionsService: CompareFunctionsService,
     private taskService: TaskService,
@@ -25,7 +30,14 @@ export class TimeListComponent implements OnInit {
     this.taskService.getTasks(sessionStorage.getItem('userId'))
       .then(res => {
         this.tasks = res;
+      });
+
+    this.subject.pipe(
+      debounceTime(400)
+      ).subscribe(searchValue => {
+        this.searchTasks(searchValue);
       })
+    
   }
 
   tasks: Task[];
@@ -41,6 +53,16 @@ export class TimeListComponent implements OnInit {
     })
 
     this.taskService.deleteTask(taskToDelete.id);
+  }
+
+  onSearchInputChange(searchTerm: string):void {
+    this.subject.next(searchTerm)
+  }
+
+  searchTasks(searchVal: string): void {
+
+    this.taskService.getTasks(sessionStorage.getItem('userId'))
+      .then(taskReturn => this.tasks = taskReturn.filter(task => task.name.includes(searchVal)))
   }
 
   changeSortBy(sortBy: string) {

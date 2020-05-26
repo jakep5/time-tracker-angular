@@ -75,7 +75,10 @@ export class TimeListItemComponent implements OnInit {
     this.showEdit = false;
 
     this.taskService.editTask(task)
+  }
 
+  hideTaskEdit() {
+    this.showEdit = !this.showEdit;
   }
 
 }

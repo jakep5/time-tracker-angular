@@ -5,6 +5,6 @@
         <span [ngStyle]="currentStyles" class="badge badge-secondary badge-pill">{{task.priority}}</span>
     </li> 
 </div>
-<app-time-list-item-edit (editTaskEvent)="editTask($event)" *ngIf="showEdit" [task]="task"></app-time-list-item-edit>
+<app-time-list-item-edit (hideTaskEditor)="hideTaskEdit()" (editTaskEvent)="editTask($event)" *ngIf="showEdit" [task]="task"></app-time-list-item-edit>
 <button type="button" (click)="deleteItem(task)" class="btn btn-dark deleteButton">delete</button>
 

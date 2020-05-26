@@ -3,7 +3,7 @@
 
     <button (click)="toggleShowAdd()" type="button" class="btn btn-primary btn-lg addTaskButton">Add Task</button>
 
-    <app-search-tasks></app-search-tasks>
+    <app-search-tasks (searchTermChange)="onSearchInputChange($event)"></app-search-tasks>
 
     <app-sort-by 
         (sortByChange)="changeSortBy($event)"

@@ -5,14 +5,13 @@
     >
         <label for="taskName">Change name:</label>
         <input 
-            [(ngModel)]="model.name"
+            [(ngModel)]="task.name"
             [ngClass]="{ 'is-invalid': editTaskForm.submitted && name.invalid }"
             type="text" 
             name="name" 
             #name="ngModel"
             id="taskName" 
             class="form-control taskNameEdit" 
-            [placeholder]="task.name" 
             aria-describedby="helpId"
             maxlength="50"
         />
@@ -22,21 +21,20 @@
 
         <label for="hoursEdit">Edit hours:</label>
         <input 
-            [(ngModel)]="model.hours"
+            [(ngModel)]="task.hours"
             [ngClass]="{ 'is-invalid': editTaskForm.submitted && hours.invalid }"
             type="number" 
             name="hours" 
             id="hoursEdit" 
             #hours="ngModel"
             class="form-control taskNameEdit" 
-            [placeholder]="task.hours" 
             aria-describedby="helpId"
         />
 
         <div class="dropdown form-group">
             <label for="priority" class="priorityLabel">Edit Priority:</label>
             <select 
-                [(ngModel)]="model.priority"
+                [(ngModel)]="task.priority"
                 name="priority" 
                 #priority="ngModel"
                 id="priority" 
@@ -50,10 +48,10 @@
         </div> 
 
         <button 
-            type="submit" 
-            class="btn btn-dark editTaskSubmitButton"
+            class="btn btn-dark hideButton"
+            (click)="hideTaskClick()"
         >
-            Submit edit
+            Hide
         </button>
     </form>
 </div>

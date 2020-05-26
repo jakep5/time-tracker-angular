@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { Task } from '../../shared/models/Task';
 import { NgForm } from '@angular/forms';
 
@@ -12,14 +12,19 @@ export class TimeListItemEditComponent implements OnInit {
 
   @Input() task: Task;
 
+  @ViewChild('form') ngForm: NgForm;
+
   @Output() editTaskEvent: EventEmitter<Task> = new EventEmitter();
+  @Output() hideTaskEditor: EventEmitter<Task> = new EventEmitter();
 
   constructor() { }
 
   model = new Task();
 
   ngOnInit(): void {
-
+    this.ngForm.form.valueChanges.subscribe(x => {
+      console.log(x);
+    })
   }
 
   onSubmit(editTaskForm: NgForm):void {
@@ -32,6 +37,10 @@ export class TimeListItemEditComponent implements OnInit {
     } 
 
     this.editTaskEvent.emit(editTaskForm.value);
+  }
+
+  hideTaskClick(): void {
+    this.hideTaskEditor.emit();
   }
 
 }

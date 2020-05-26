@@ -13,30 +13,19 @@ import { TaskService } from '../../shared/Services/task-service.service';
 })
 export class SearchTasksComponent implements OnInit {
 
-/*   @Output() taskNameSearchEmitter: EventEmitter<string> = new EventEmitter();
- */
-  constructor(
-    private taskService: TaskService
-  ) {
-  }
+  @Output() searchTermChange: EventEmitter<string> = new EventEmitter();
 
-  private searchTerms = new Subject<string>();
-  tasks$: Observable<Task[]>;
+  constructor(
+  ) 
+  {}
+
 
   ngOnInit(): void {
-    this.tasks$ = this.searchTerms.pipe(
-      debounceTime(300),
-
-      distinctUntilChanged(),
-
-      switchMap((term: string) => this.taskService.searchTasks(term))
-    )
+    
   }
 
   search(term: string): void {
-    this.searchTerms.next(term);
-
-    this.taskService.searchTasks(term)
+    this.searchTermChange.emit(term);
   }
 
 }
