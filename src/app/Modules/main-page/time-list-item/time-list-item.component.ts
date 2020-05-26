@@ -59,20 +59,10 @@ export class TimeListItemComponent implements OnInit {
   }
 
   editTask(task: Task): void {
-    /* this.task.name = task.name;
-    this.task.hours = task.hours;
-    this.task.priority = task.priority; */
-    if (task.priority == undefined) {
-      task.priority = this.task.priority;
-    }
-    
+
     task.id = this.task.id;
 
-    console.log(task);
-
     this.setCurrentStyles();
-
-    this.showEdit = false;
 
     this.taskService.editTask(task)
   }

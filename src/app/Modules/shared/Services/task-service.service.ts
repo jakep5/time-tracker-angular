@@ -73,6 +73,7 @@ export class TaskService {
   }
   
   editTask(task: Task): any {
+
     let token = this.tokenService.getAuthToken();
 
     let taskEdit = {

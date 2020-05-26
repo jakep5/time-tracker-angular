@@ -16,6 +16,7 @@
 
     <div class="timeListHolder">
         <ul class="list-group">
+            <p class="noTaskMessage" *ngIf="tasks !== undefined && tasks.length === 0">No tasks found</p>
             <app-time-list-item (deleteItemEvent)="deleteItem($event)" *ngFor="let taskEntry of tasks" [task]="taskEntry"></app-time-list-item>
         </ul>
     </div>  
