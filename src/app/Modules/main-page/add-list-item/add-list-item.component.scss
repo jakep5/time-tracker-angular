@@ -9,7 +9,6 @@ label {
     left: 0%;
     @include mixins.breakpoint(tablet) {
         position: relative;
-        left: 20%;
     }
 }
 
@@ -18,8 +17,12 @@ label.priorityLabel {
     display: block;
 
     @include mixins.breakpoint(tablet) {
-        display: initial;
+        display: block;
     }
+}
+
+label.taskNameLabel {
+    display: inline-block;
 }
 
 div.newTaskFormHolder {
@@ -27,7 +30,7 @@ div.newTaskFormHolder {
     text-align: center;
     
     @include mixins.breakpoint(tablet) {
-        text-align: inherit;
+        position: relative;
     }
 }
 
@@ -39,9 +42,12 @@ div.dropdown {
 
     @include mixins.breakpoint(tablet) {
         width: 30%;
-        left: 20%;
         top: 20px;
     }
+}
+
+div.form-group {
+    text-align: center;
 }
 
 select.dropDownMenu {
@@ -53,21 +59,36 @@ select.dropDownMenu {
     }
 }
 
-button.itemSubmitButton {
-    margin-top: 20px;
-    position: relative;
-    left: calc(50% - 20px);
+button.itemSubmitButton, button.hideFormButton {
+    left: 0%;
+
+    @include mixins.breakpoint(tablet) {
+        margin-top: 20px;
+        display: inline-block;
+    }
+}
+
+button.hideFormButton {
+    margin-left: 5px;
 }
 
 label.hoursLabel {
     margin-top: 20px;
+    display: block;
+
+    @include mixins.breakpoint(tablet) {
+        display: block;
+    }
 }
 
 input.hoursInput {
     margin-left: 0%;
+    width: 60%;
+    display: inline-block;
+
     @include mixins.breakpoint(tablet) {
         width: 20%;
-        margin-left: 20%;
+        display: inline-block;
     }
     
 }

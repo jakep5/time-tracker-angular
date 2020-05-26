@@ -19,7 +19,7 @@
         </div>
         </div>
 
-        <div class="dropdown form-group">
+        <div class="form-group">
         <label for="priority" class="priorityLabel">Select Priority:</label>
         <select 
             [(ngModel)]="model.priority"
@@ -45,7 +45,11 @@
         <input type="number" required class="form-control hoursInput" [(ngModel)]="model.hours" #hours name="hours" placeholder="0"/>
         </div>
         
-        <button type="submit" (click)="addTaskForm.control.markAsTouched()" for="addTaskForm" class="btn btn-primary itemSubmitButton">Submit</button>
+        <div class="buttonHolder">
+            <button type="submit" (click)="addTaskForm.control.markAsTouched()" for="addTaskForm" class="btn btn-primary itemSubmitButton">Submit</button>
+            <button (click)="onHideFormClick()"class="btn btn-primary hideFormButton">Hide form</button>
+
+        </div>
     </form>
 </div>
 

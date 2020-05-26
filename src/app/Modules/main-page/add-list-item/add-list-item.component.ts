@@ -11,6 +11,7 @@ import { Task } from '../../shared/models/Task';
 export class AddListItemComponent implements OnInit {
 
   @Output() newTask: EventEmitter<Task> = new EventEmitter();
+  @Output() hideForm: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
@@ -27,6 +28,10 @@ export class AddListItemComponent implements OnInit {
     }
 
     this.newTask.emit(addTaskForm.value);
+  }
+
+  onHideFormClick() {
+    this.hideForm.emit()
   }
 
 
