@@ -4,14 +4,32 @@ div.form-group {
     width: 90%;
     margin: auto;
     @include mixins.breakpoint(tablet) {
-        width: 50%;
+        width: 75%;;
         margin-top: 3.5%;
         text-align: center;
     }
 }
 
+label {
+    display: block;
+    margin-top: 20px;
+
+    @include mixins.breakpoint(tablet) {
+        margin-top: 0px;
+    }
+}
+
+label.usernameLabel {
+    margin-top: 50px;
+}
+
 p.errorMessage {
     color: red;
+    position: relative;
+    bottom: 5px;
+    @include mixins.breakpoint(tablet) {
+        bottom: 20px;
+    }
 }
 
 div.passwordRequirements {
@@ -26,13 +44,14 @@ button.btn-primary {
     margin-top: 30px;
 }
 
-label {
-    position: relative;
-    right: 43%;
-}
-
-input.usernameInput {
-    display: block;
+input {
+    @include mixins.breakpoint(tablet) {
+        width: 400px;
+        display: block !important;
+        margin-left: calc(50% - 200px);
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
 }
 
 form.signUpForm {
@@ -48,7 +67,7 @@ input.passwordInput, input.confirmPasswordInput {
 }
 
 label.confirmPasswordLabel {
-    right: 37%;
+    right: 34%;
 }
 
 .is-invalid {
@@ -73,4 +92,5 @@ ul#passwordRequirements li {
 span.showPassword:hover {
     cursor: pointer;
 }
+
 

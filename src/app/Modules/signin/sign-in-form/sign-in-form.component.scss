@@ -5,7 +5,14 @@ div.signInFormHolder {
     margin-top: 30px;
     width: 80%;
     @include mixins.breakpoint(tablet) {
-        width: 30%;
+        width: 45%;
+    }
+}
+
+input {
+    @include mixins.breakpoint(tablet) {
+        width: 400px;
+        margin-left: calc(50% - 200px);
     }
 }
 

@@ -39,6 +39,7 @@ export class SignUpFormComponent implements OnInit {
         this.tokenService.saveAuthToken(res.authToken);
       })
       .catch(res => {
+        this.isLoadingEvent.emit();
         this.error = true;
       })
   }
