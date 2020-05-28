@@ -13,6 +13,8 @@ import { MainPageModule } from './Modules/main-page/main-page.module';
 import { ProfileModule } from './Modules/profile/profile.module';
 import { UserService } from './Modules/shared/Services/user.service';
 import { AboutPageModule } from './Modules/aboutpage/about-page.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import { AboutPageModule } from './Modules/aboutpage/about-page.module';
     FormsModule,
     ProfileModule,
     HttpClientModule,
-    AboutPageModule
+    AboutPageModule,
+    BrowserAnimationsModule,
+    MatProgressBarModule
   ],
   providers: [
     UserService

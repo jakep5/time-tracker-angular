@@ -11,6 +11,8 @@ import { User } from '../../shared/models/User';
 
 export class SignUpPageComponent implements OnInit {
 
+  isLoading: boolean = false;
+  
   constructor() { }
 
   ngOnInit(): void {
@@ -19,6 +21,10 @@ export class SignUpPageComponent implements OnInit {
 
   addUser(newUser: User): void {
     console.log(newUser)
+  }
+
+  loadingBarToggle(): void {
+    this.isLoading = !this.isLoading;
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import {MatProgressBarModule} from '@angular/material/progress-bar'
 
 import { User } from '../../shared/models/User';
 
@@ -17,6 +18,7 @@ export class SignInFormComponent implements OnInit {
   }
 
   signIn(username: string, password: string, confirmPassword?: string) {
+
     let signInUser: User = {
       username,
       password,

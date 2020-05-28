@@ -6,7 +6,17 @@
     <label class="passwordLabel" for="">Password</label>
     <input type="password" #userPassword class="form-control" name="" id="signUpPassword" placeholder="password">
 
+    <p class="dummyAccount">Dummy account:</p>
+    <div class="dummyInfoHolder">
+      <p class="dummyUsername">testuser123</p>
+      <p class="dummyPassword">!Testpassword123</p>
+    </div>
+
     <button (click)="signIn(userName.value, userPassword.value)" type="button" class="btn btn-primary signInSubmit">Sign In</button>
+
+    <div class="createAccountHolder">
+      <p class="createAccount">Need to create an account? <a class="createAccount" href="signUp">Sign Up</a></p>
+    </div>
   </form>  
 </div>
 

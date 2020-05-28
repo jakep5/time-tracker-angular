@@ -13,6 +13,10 @@ import { UserService } from '../../shared/Services/user.service';
 })
 export class SignInPageComponent implements OnInit {
 
+  isLoading: boolean = false;
+
+  error: boolean = false;
+
   constructor(
     private authService: AuthenticationService,
     private tokenService: TokenService,
@@ -25,6 +29,8 @@ export class SignInPageComponent implements OnInit {
 
   signInUser(user: User) { 
 
+    this.isLoading = true;
+
     localStorage.setItem('currentUser', user.username);
     
     this.authService.handleSignInAuthentication(user)
@@ -32,7 +38,12 @@ export class SignInPageComponent implements OnInit {
         this.tokenService.saveAuthToken(res.authToken);
       })
       .then(res => {
+        this.isLoading = false;
         this.router.navigate(['main'])
+      })
+      .catch(err => {
+        this.error = true;
+        this.isLoading = false;
       })
   }
 

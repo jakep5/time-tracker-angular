@@ -1,7 +1,11 @@
 <app-sign-in-nav></app-sign-in-nav>
 
 <div class="signInWrapper">
+    <mat-progress-bar *ngIf="isLoading" class="loadingBar" mode="indeterminate"></mat-progress-bar>
+
     <h1 class="signInHeader">Sign In</h1>
+
+    <p *ngIf="error" class="errorMessage">Invalid username and/or password</p>
     
     <app-sign-in-form (signInEvent)="signInUser($event)"></app-sign-in-form>
 </div>

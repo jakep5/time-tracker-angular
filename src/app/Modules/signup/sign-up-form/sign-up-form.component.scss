@@ -5,9 +5,13 @@ div.form-group {
     margin: auto;
     @include mixins.breakpoint(tablet) {
         width: 50%;
-        margin-top: 5%;
+        margin-top: 3.5%;
         text-align: center;
     }
+}
+
+p.errorMessage {
+    color: red;
 }
 
 div.passwordRequirements {

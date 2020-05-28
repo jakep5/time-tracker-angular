@@ -8,6 +8,7 @@ import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { FormsModule } from '@angular/forms';
 import { EqualValidator } from './Directives/equal-validator.directive';
 import { ShowPasswordDirective } from './Directives/show-password.directive';
+import { MatProgressBarModule, MatProgressBar } from '@angular/material/progress-bar';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ShowPasswordDirective } from './Directives/show-password.directive';
   imports: [
     CommonModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    MatProgressBarModule
   ]
 })
 export class SignupModule { }

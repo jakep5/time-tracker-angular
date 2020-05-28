@@ -2,7 +2,7 @@
 
 div.signInFormHolder {
     display: inline-block;
-    margin-top: 50px;
+    margin-top: 30px;
     width: 80%;
     @include mixins.breakpoint(tablet) {
         width: 30%;
@@ -14,7 +14,21 @@ label.passwordLabel {
 }
 
 button.signInSubmit {
-    margin-top: 30px;
+    margin-top: 15px;
+}
+
+p.dummyAccount {
+    margin-top: 20px;
+}
+
+.loadingBar {
+    margin-top: 20px;
+    width: 50%;
+    display: inline-block;
+}
+
+div.createAccountHolder {
+    margin-top: 10px;
 }
 
 

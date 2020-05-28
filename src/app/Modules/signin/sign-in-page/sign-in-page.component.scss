@@ -4,6 +4,16 @@ div.signInWrapper {
     height: 100%;
 }
 
+p.errorMessage {
+    color: red;
+    position: relative;
+    top: 20px;
+}
+
 h1.signInHeader {
     margin-top: 30px;
+}
+
+.loadingBar .mat-progress-bar-fill::after{
+    background-color: grey !important;
 }

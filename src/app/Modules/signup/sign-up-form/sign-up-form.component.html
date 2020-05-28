@@ -1,4 +1,8 @@
 <div class="form-group">
+    <div *ngIf="error" class="errorMessageHolder">
+        <p class="errorMessage">Username already taken</p>
+    </div>
+
     <form #signUpForm="ngForm" class="signUpForm" (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)" id="signUpForm">
         <div class="form-group usernameFormGroup">
         <label class="usernameLabel" for="username">Username</label>

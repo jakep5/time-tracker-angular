@@ -14,7 +14,7 @@ import { TokenService } from '../../shared/Services/token.service';
 
 export class SignUpFormComponent implements OnInit {
 
-  @Output() newUserEvent = new EventEmitter<User>();
+  @Output() isLoadingEvent = new EventEmitter<any>();
 
   constructor(
     private authService: AuthenticationService,
@@ -28,16 +28,18 @@ export class SignUpFormComponent implements OnInit {
 
   model = new User();
 
-  error: string = null;
+  error: boolean = false;
 
   onSubmit(signUpForm: NgForm) {
+    this.isLoadingEvent.emit();
     this.authService.handleSignUpAuthentication(signUpForm)
       .then(res => {
+        this.isLoadingEvent.emit();
         this.router.navigate(['main'])
         this.tokenService.saveAuthToken(res.authToken);
       })
       .catch(res => {
-        this.error = res.error;
+        this.error = true;
       })
   }
 
