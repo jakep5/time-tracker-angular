@@ -1,4 +1,23 @@
+@use "../../../../../mixins.scss";
+
 a.returnButton {
     margin-top: 20px;
     color: white;
+}
+
+div.returnButtonHolder {
+    display: inline-block
+}
+
+div.profileWrapper {
+    text-align: center;
+    
+    @include mixins.breakpoint(tablet) {
+        text-align: initial;
+    }
+}
+
+.hoursDisplay {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }

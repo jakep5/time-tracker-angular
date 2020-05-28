@@ -1,18 +1,18 @@
 <app-profile-nav></app-profile-nav>
 
-<div class="jumbotron jumbotron-fluid">
+<div class="jumbotron jumbotron-fluid profileWrapper">
     <div class="container">
         <h1 class="display-3">Hello, {{currentUser}}</h1>
+
         <p class="lead">Here are your stats:</p>
-        <hr class="my-2">
-        <h2>Hours: {{userHours}} </h2>
+        <h2 class="hoursDisplay">Hours: {{userHours}} </h2>
 
         <app-level-info [userHours]="userHours"></app-level-info>
 
         <app-top-tasks ></app-top-tasks>
 
-        <p class="lead">
+        <div class="returnButtonHolder">
             <a class="btn btn-primary btn-lg returnButton" (click)="navigateToMain()" role="button">Return to tasks</a>
-        </p>
+        </div>
     </div>
 </div>

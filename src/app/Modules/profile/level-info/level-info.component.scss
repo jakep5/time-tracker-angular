@@ -4,10 +4,17 @@ div.progressBar {
     height: 10px;
     border: 1px solid black;
     margin-bottom: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 div.innerProgressBar {
     border: none;
     background-color: rgba(0, 153, 255, 0.986);
     height: 8px;
+}
+
+h2.levelDisplay {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }

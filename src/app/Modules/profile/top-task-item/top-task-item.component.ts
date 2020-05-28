@@ -19,6 +19,7 @@ export class TopTaskItemComponent implements OnInit {
   }
 
   currentStyles = {};
+  currentStylesText = {};
 
   setCurrentStyles() {
     if (this.task.priority === 'low') {
@@ -28,6 +29,10 @@ export class TopTaskItemComponent implements OnInit {
     } else if (this.task.priority === 'med') {
       this.currentStyles = {
         'background-color': 'yellow'
+      }
+
+      this.currentStylesText = {
+        'color': 'black'
       }
     } else {
       this.currentStyles = {
