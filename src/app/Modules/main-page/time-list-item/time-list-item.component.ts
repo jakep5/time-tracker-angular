@@ -21,6 +21,7 @@ export class TimeListItemComponent implements OnInit {
   } */
 
   currentStyles: {};
+  currentStylesText: {};
 
   showEdit: boolean = false;
 
@@ -39,7 +40,10 @@ export class TimeListItemComponent implements OnInit {
       }
     } else if (this.task.priority === 'med') {
       this.currentStyles = {
-        'background-color': 'yellow'
+        'background-color': 'yellow',
+      }
+      this.currentStylesText = {
+        'color': 'black'
       }
     } else {
       this.currentStyles = {

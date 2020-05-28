@@ -2,7 +2,13 @@
   @if $point == tablet {
     @media (min-width: 480px) { @content; }
   }
-  @else if $point == desktop {
-    @media (max-width: 1250px) { @content; }
+
+  @else if $point == tabletLarge {
+    @media (min-width: 760px) { @content; }
   }
+
+  @else if $point == desktop {
+    @media (min-width: 1250px) { @content; }
+  }
+
 }

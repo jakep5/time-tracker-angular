@@ -2,7 +2,17 @@
 
 div.sortByFormHolder {
     margin-bottom: 25px;
-}
+    
+    @include mixins.breakpoint(tablet) {
+        width: 400px;
+        margin-left: calc(50% - 200px);
+    }
+
+    @include mixins.breakpoint(tabletLarge) {
+        width: 600px;
+        margin-left: calc(50% - 300px);
+    }
+}   
 
 div.sortButtonHolder {
 

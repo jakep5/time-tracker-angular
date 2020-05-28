@@ -1,5 +1,11 @@
+@use "../../../../../mixins.scss";
+
 button.deleteButton {
     padding: 5px 10px;
+
+    @include mixins.breakpoint(tablet) {
+        float: left;
+    }
 }
 
 button.deleteButton:hover {
@@ -25,5 +31,14 @@ span.nameDisplay {
 }
 
 span.hoursDisplay {
+    color: white;
+}
+
+.badge {
+    width: 100px;
+    height: 20px;
+}
+
+p.priority {
     color: white;
 }

@@ -2,7 +2,7 @@
     <li class=" listItem list-group-item d-flex justify-content-between align-items-center disabled">
         <span class="nameDisplay">{{task.name}}</span>
         <span class="hoursDisplay">{{task.hours}} hours</span>
-        <span [ngStyle]="currentStyles" class="badge badge-secondary badge-pill">{{task.priority}}</span>
+        <span [ngStyle]="currentStyles" class="badge badge-secondary badge-pill"><p [ngStyle]="currentStylesText" class="priority">{{task.priority}}</p></span>
     </li> 
 </div>
 <app-time-list-item-edit (hideTaskEditor)="hideTaskEdit()" (editTaskEvent)="editTask($event)" *ngIf="showEdit" [task]="task"></app-time-list-item-edit>
