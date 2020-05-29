@@ -12,7 +12,6 @@ import { SignupModule } from './Modules/signup/signup.module';
 import { MainPageModule } from './Modules/main-page/main-page.module';
 import { ProfileModule } from './Modules/profile/profile.module';
 import { UserService } from './Modules/shared/Services/user.service';
-import { AboutPageModule } from './Modules/aboutpage/about-page.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 
@@ -32,7 +31,6 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     FormsModule,
     ProfileModule,
     HttpClientModule,
-    AboutPageModule,
     BrowserAnimationsModule,
     MatProgressBarModule
   ],
