@@ -1,9 +1,15 @@
+@use "../../../../../mixins.scss";
+
 label {
     margin-top: 8px;
 }
 
 div.editItem {
     width: 100%;
+
+    @include mixins.breakpoint(tablet) {
+        text-align: initial;
+    }
 }
 
 input.taskNameEdit {

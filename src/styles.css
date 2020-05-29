@@ -9,6 +9,18 @@ html {
 
 body {
     width: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+h1, h2, h3 {
+    font-family: 'Halant', serif !important;
+    color: white !important;
+}
+
+p, li, ul, button, input, a{
+    font-family: 'Nunito Sans', sans-serif !important;
+}
+

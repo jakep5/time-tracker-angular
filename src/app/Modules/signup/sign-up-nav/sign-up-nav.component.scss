@@ -14,6 +14,10 @@ li.nav-item {
     
 }
 
+a {
+    color: black !important;
+}
+
 li.about {
     display: none;
     @include mixins.breakpoint(tablet) {

@@ -43,15 +43,21 @@ export class TimeListComponent implements OnInit {
   tasks: Task[];
 
   deleteItem(taskToDelete: Task) {
-    this.tasks.map(task => {
-      if (task.id === taskToDelete.id) {
-        let deleteIndex = this.tasks.indexOf(task);
 
-        this.tasks.splice(deleteIndex, 1);
-      }
-    })
+    let confirmation = confirm(`Are you sure you want to delete ${taskToDelete.name}, with ${taskToDelete.hours} hours logged?`);
 
-    this.taskService.deleteTask(taskToDelete.id);
+    if (confirmation) {
+      this.tasks.map(task => {
+        if (task.id === taskToDelete.id) {
+          let deleteIndex = this.tasks.indexOf(task);
+
+          this.tasks.splice(deleteIndex, 1);
+        }
+      })
+
+      this.taskService.deleteTask(taskToDelete.id);
+    }
+    
   }
 
   onSearchInputChange(searchTerm: string):void {
@@ -101,6 +107,8 @@ export class TimeListComponent implements OnInit {
   }
 
   addNewTask(task: Task):void {
+    this.tasks.push(task) 
+    console.log(this.tasks);
     this.toggleAddToList = !this.toggleAddToList;
     this.taskService.addTask({
       name: task.name,
@@ -108,12 +116,12 @@ export class TimeListComponent implements OnInit {
       priority: task.priority,
       user_id: parseInt(sessionStorage.getItem('userId')),
     })
-
-    this.taskService.getTasks(sessionStorage.getItem('userId'))
-      .then(res => {
-        this.tasks = res;
-      })
-  
+      .then(
+        this.taskService.getTasks(sessionStorage.getItem('userId'))
+        .then(res => {
+          this.tasks = res;
+        })
+      )
   }
 
   toggleShowAdd(): void {

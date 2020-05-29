@@ -22,10 +22,6 @@ export class AddListItemComponent implements OnInit {
   model = new Task();
 
   onSubmit(addTaskForm: NgForm) {
-    if (addTaskForm.valid) {
-
-    }
-
     this.newTask.emit(addTaskForm.value);
   }
 
