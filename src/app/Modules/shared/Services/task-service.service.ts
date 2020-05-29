@@ -22,8 +22,6 @@ export class TaskService {
 
   addTask(task: Task) {
 
-    console.log(JSON.stringify(task));
-
     let token = this.tokenService.getAuthToken();
     
     return fetch(`${config.API_BASE_URL}/tasks`, {
@@ -109,8 +107,6 @@ export class TaskService {
 
     let token = this.tokenService.getAuthToken();
 
-    console.log('here');
-
     return Observable.create(observer => {
       fetch(`${config.API_BASE_URL}/tasks/search/?name=${term}`, {
         headers: {
@@ -129,23 +125,5 @@ export class TaskService {
 
         .catch(err => observer.error(err));
     })
-    /* return fetch(`${config.API_BASE_URL}/tasks/search/?name=${term}`, {
-      headers: {
-        'Authorization': `bearer ${token}`,
-        'user_id': userId
-      }
-        .then(response => response.json())
-        .then(tasks => {
-          var result = 
-        })
-    }) */
-
-   /*  return this.http.get<Task[]>(`${config.API_BASE_URL}/tasks/search/?name=${term}`).pipe(
-      tap(tasks => tasks.length 
-        ? console.log(`found tasks matching ${term}`)
-        : console.log(`no tasks found matching ${term}`)  ,
-      )
-    ) */
   }
-
 }

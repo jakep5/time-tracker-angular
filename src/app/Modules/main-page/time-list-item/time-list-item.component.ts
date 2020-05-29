@@ -13,12 +13,6 @@ export class TimeListItemComponent implements OnInit {
   @Input() task: Task;
 
   @Output() deleteItemEvent = new EventEmitter<Task>();
-/* 
-  @HostListener('click', ['$event'])
-  onClick(e) {
-    this.showEdit = !this.showEdit;
-    console.log(this.showEdit);
-  } */
 
   currentStyles: {};
   currentStylesText: {};
@@ -53,13 +47,11 @@ export class TimeListItemComponent implements OnInit {
   }
 
   deleteItem(task: Task): void {
-    console.log('here');
     this.deleteItemEvent.emit(task);
   }
 
   toggleShowEdit(): void {
     this.showEdit = !this.showEdit;
-    console.log(this.showEdit)
   }
 
   editTask(task: Task): void {

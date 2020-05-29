@@ -20,7 +20,7 @@ export class AuthenticationService {
       password: signUpForm.value.password
     }
 
-    console.log(newUser);
+    console.log(`${config.API_BASE_URL}/users`)
 
     return fetch(`${config.API_BASE_URL}/users`, {
       method: "POST",
@@ -41,8 +41,6 @@ export class AuthenticationService {
       user_name: user.username,
       password: user.password
     }
-
-    console.log(signInUser);
 
     return fetch(`${config.API_BASE_URL}/auth/login`, {
       method: "POST",

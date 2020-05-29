@@ -17,7 +17,6 @@ export class HomepageComponent implements OnInit {
 
   displayMoreInfo(): void {
     this.moreInfoDisplay = !this.moreInfoDisplay;
-    console.log(this.moreInfoDisplay)
   }
 
 }

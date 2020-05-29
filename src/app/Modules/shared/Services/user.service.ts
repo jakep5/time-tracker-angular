@@ -35,16 +35,12 @@ export class UserService {
   calculateUserLevel(tasks: Array<Task>): string {
     let level: string;
 
-    console.log(tasks);
-
     let hoursLogged: number = 0;
 
     for (let task of tasks) {
       hoursLogged += task.hours
     };
-
-    console.log(hoursLogged);
-
+    
     if (hoursLogged < 5) {
       return 'novice';
     } else if (hoursLogged >= 5 && hoursLogged < 30) {

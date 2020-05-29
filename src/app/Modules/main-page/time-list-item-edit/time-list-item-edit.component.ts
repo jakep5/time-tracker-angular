@@ -54,8 +54,6 @@ export class TimeListItemEditComponent implements OnInit {
   }
   
   editTask(newTask): void {
-    console.log(newTask);
-
     if (Object.entries(newTask).length === 0) {
       return;
     }

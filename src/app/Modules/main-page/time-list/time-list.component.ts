@@ -47,7 +47,6 @@ export class TimeListComponent implements OnInit {
       if (task.id === taskToDelete.id) {
         let deleteIndex = this.tasks.indexOf(task);
 
-        /* console.log(this.tasks[deleteIndex]) */
         this.tasks.splice(deleteIndex, 1);
       }
     })
@@ -84,7 +83,6 @@ export class TimeListComponent implements OnInit {
   }
 
   changeCharSort(char: string) {
-    console.log(char);
 
     this.taskService.getTasks(sessionStorage.getItem('userId'))
       .then(tasks => {
