@@ -11,9 +11,25 @@ export class MainPageNavComponent implements OnInit {
   constructor(
     public authService: AuthenticationService
   ) { }
+  
+  active: string = ''; 
 
   ngOnInit(): void {
+    if (localStorage.getItem('active link') === 'Profile') {
+      this.active = 'Profile';
+    } else {
+      this.active = 'Home';
+    }
 
+    console.log(this.active);
+  }
+  
+  setToProfile(): void {
+    localStorage.setItem('active link', 'Profile');
+  }
+
+  setToHome(): void {
+    localStorage.setItem('active link', 'Home');
   }
 
 }

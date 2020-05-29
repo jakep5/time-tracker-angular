@@ -33,6 +33,8 @@ export class LevelInfoComponent implements OnInit {
   generateProgressBar () {
     let barTotal;
 
+    console.log('here');
+
     if (this.userLevel === 'novice') {
       barTotal = 5;
     } else if (this.userLevel === 'apprentice') {
@@ -44,6 +46,8 @@ export class LevelInfoComponent implements OnInit {
     } else {
       barTotal = 1000;
     }
+
+    console.log(this.userHours)
 
     this.barTotal = barTotal;
     

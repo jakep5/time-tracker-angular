@@ -4,6 +4,7 @@
 
 <div class="progressBar">
     <div 
+        *ngIf="barTotal !== undefined"
         [ngStyle]="{'width': levelProgress + '%'}" 
         class="innerProgressBar">
     </div>

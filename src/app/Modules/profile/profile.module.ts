@@ -13,10 +13,11 @@ import { TopTaskItemComponent } from './top-task-item/top-task-item.component';
     ProfilePageComponent, 
     ProfileNavComponent, 
     LevelInfoComponent, 
-    TopTasksComponent, TopTaskItemComponent,
+    TopTasksComponent, 
+    TopTaskItemComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
   ]
 })
 export class ProfileModule { }
