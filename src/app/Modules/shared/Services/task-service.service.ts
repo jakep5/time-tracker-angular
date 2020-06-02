@@ -16,8 +16,7 @@ export class TaskService {
 
 
   constructor(
-    private tokenService: TokenService,
-    private http: HttpClient
+    private tokenService: TokenService
   ) { }
 
   addTask(task: Task) {
@@ -39,6 +38,7 @@ export class TaskService {
     )
   }
   
+  //get tasks associated with user ID that is passed as an argument
   getTasks(userId: string): any {
 
     let token = this.tokenService.getAuthToken();
@@ -59,6 +59,7 @@ export class TaskService {
       })
   }
 
+  //delete task by taskId
   deleteTask(taskId: number): any {
     let token = this.tokenService.getAuthToken();
 
@@ -70,6 +71,7 @@ export class TaskService {
     })
   }
   
+  //PATCH task, accessed by task ID
   editTask(task: Task): any {
 
     let token = this.tokenService.getAuthToken();
@@ -98,6 +100,7 @@ export class TaskService {
       })
   }
 
+  //search all tasks via their name, tasks must match current user's ID
   searchTasks(term: string): Observable<Task[]> {
     if (!term.trim()) {
       return of([]);

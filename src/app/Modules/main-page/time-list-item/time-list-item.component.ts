@@ -14,9 +14,14 @@ export class TimeListItemComponent implements OnInit {
 
   @Output() deleteItemEvent = new EventEmitter<Task>();
 
+
+  //property for badge color styles
   currentStyles: {};
+
+  //property for text color styles
   currentStylesText: {};
 
+  //show task edit form - toggled via this.toggleShowEdit();
   showEdit: boolean = false;
 
   constructor(
@@ -24,10 +29,14 @@ export class TimeListItemComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
+    //set styles of item based on priority value for each respective task
     this.setCurrentStyles();
   }
 
   setCurrentStyles() {
+
+    //change color of task badge depending on priority value
     if (this.task.priority === 'low') {
       this.currentStyles = {
         'background-color': 'green'
@@ -36,6 +45,8 @@ export class TimeListItemComponent implements OnInit {
       this.currentStyles = {
         'background-color': 'yellow',
       }
+
+      //set text color to black instead of white for 'med' priority
       this.currentStylesText = {
         'color': 'black'
       }
@@ -50,21 +61,21 @@ export class TimeListItemComponent implements OnInit {
     this.deleteItemEvent.emit(task);
   }
 
+  //toggle visibility of task editing form
   toggleShowEdit(): void {
     this.showEdit = !this.showEdit;
   }
 
   editTask(task: Task): void {
-
     task.id = this.task.id;
 
     this.setCurrentStyles();
 
+    //pass new task object to PATCH function in taskService
     this.taskService.editTask(task)
   }
 
   hideTaskEdit() {
     this.showEdit = !this.showEdit;
   }
-
 }

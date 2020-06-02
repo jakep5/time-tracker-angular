@@ -15,6 +15,7 @@ export class HomepageComponent implements OnInit {
 
   moreInfoDisplay: boolean = false;
 
+  //toggle visibility of more info panel 
   displayMoreInfo(): void {
     this.moreInfoDisplay = !this.moreInfoDisplay;
   }

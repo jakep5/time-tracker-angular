@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SortByComponent } from './sort-by.component';
+import { FormsModule } from '@angular/forms';
 
 describe('SortByComponent', () => {
   let component: SortByComponent;
@@ -8,6 +9,7 @@ describe('SortByComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [ FormsModule ],
       declarations: [ SortByComponent ]
     })
     .compileComponents();

@@ -1,5 +1,5 @@
 <div class="form-group signInFormHolder">
-  <form id="signUpForm">
+  <form id="signUpForm" (keyup.enter)="signIn(userName.value, userPassword.value)">
     <label for="">Username</label>
     <input type="text" #userName class="form-control" name="" id="signUpUsername" aria-describedby="emailHelpId" placeholder="username">
 

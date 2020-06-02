@@ -33,6 +33,7 @@ export class LevelInfoComponent implements OnInit {
   generateProgressBar () {
     let barTotal;
 
+    //change bar total based on user's current level
     if (this.userLevel === 'novice') {
       barTotal = 5;
     } else if (this.userLevel === 'apprentice') {
@@ -47,8 +48,8 @@ export class LevelInfoComponent implements OnInit {
 
     this.barTotal = barTotal;
     
+    //calculate amount of progress bar to fill, as a percentage value
     this.levelProgress = (this.userHours / barTotal) * 100;
-    
   }
 
 }

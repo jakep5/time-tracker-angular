@@ -18,9 +18,13 @@ export class TopTaskItemComponent implements OnInit {
     this.setCurrentStyles();
   }
 
+  //property for badge color styles
   currentStyles = {};
+
+  //property for text color styles
   currentStylesText = {};
 
+  //change color of priority badge based on priority value of task
   setCurrentStyles() {
     if (this.task.priority === 'low') {
       this.currentStyles = {
@@ -30,7 +34,6 @@ export class TopTaskItemComponent implements OnInit {
       this.currentStyles = {
         'background-color': 'yellow'
       }
-
       this.currentStylesText = {
         'color': 'black'
       }

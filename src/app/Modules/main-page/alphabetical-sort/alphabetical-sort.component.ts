@@ -24,9 +24,7 @@ export class AlphabeticalSortComponent implements OnInit {
   currentLetters: Array<string>;
 
   setSortLetter(char: string): void {
-
     this.charSortChange.emit(char);
-
   }
 
   setSortLetterMobile(event): void {

@@ -16,6 +16,7 @@ export class AlphabeticalSortButtonComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //add outline to show currently-selected alphabetic character
   setStyles() {
     this.active = true;
   }

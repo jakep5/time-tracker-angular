@@ -20,6 +20,7 @@ export class SignUpPageComponent implements OnInit {
   }
 
   loadingBarToggle(): void {
+    //toggle display of loading bar at top of page
     this.isLoading = !this.isLoading;
   }
 

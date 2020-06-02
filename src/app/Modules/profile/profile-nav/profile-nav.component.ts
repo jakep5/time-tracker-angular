@@ -15,13 +15,4 @@ export class ProfileNavComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  setToProfile(): void {
-    localStorage.setItem('active link', 'Profile');
-  }
-
-  setToHome(): void {
-    localStorage.setItem('active link', 'Home');
-  }
-
 }

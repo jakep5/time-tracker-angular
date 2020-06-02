@@ -11,6 +11,7 @@ export class CompareFunctionsService {
   sortType: string;
 
 
+  //sort in ascending/descending order via NAME if sortType is 'name'
   compareName = (a, b) => {
     this.sortType = 'name';
     if (this.sortDirection === 'desc') {
@@ -25,6 +26,7 @@ export class CompareFunctionsService {
    
   }
 
+  //sort from lowest to highest priority if sortType is 'priority'
   comparePriority = (a, b) => {
     this.sortType = 'priority';
     let prioA = a.priority;
@@ -60,9 +62,9 @@ export class CompareFunctionsService {
         return 1;
       }
     }
-    
   }
 
+  //sort numerically by hours logged if sortType is 'hours'
   compareHours = (a, b) => {
     this.sortType = 'hours';
     if (this.sortDirection === 'desc') {
@@ -84,6 +86,7 @@ export class CompareFunctionsService {
     }
   }
 
+  //change the currently-selected sort direction
   changeSortDirection= (direction: string) => {
     this.sortDirection = direction;
   }

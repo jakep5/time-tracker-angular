@@ -3,5 +3,5 @@ export class Task {
     public name: string;
     public hours: number = 0;
     public user_id: number = 1;
-    public priority: string; //low, med, high?
+    public priority: string; 
 }

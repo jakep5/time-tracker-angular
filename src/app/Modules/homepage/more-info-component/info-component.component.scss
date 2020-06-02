@@ -14,6 +14,13 @@ div.moreInfoHolder {
     }
 }
 
+div.ulHolder {
+    @include mixins.breakpoint(tablet) {
+        position: relative;
+        left: 10px;
+    }
+}
+
 ul.moreInfoList {
     padding-left: 0;
     list-style-type: initial;

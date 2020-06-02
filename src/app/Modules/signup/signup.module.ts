@@ -12,7 +12,13 @@ import { MatProgressBarModule, MatProgressBar } from '@angular/material/progress
 
 
 @NgModule({
-  declarations: [SignUpPageComponent, SignUpNavComponent, SignUpFormComponent, EqualValidator, ShowPasswordDirective],
+  declarations: [
+    SignUpPageComponent, 
+    SignUpNavComponent, 
+    SignUpFormComponent, 
+    EqualValidator, 
+    ShowPasswordDirective
+  ],
   imports: [
     CommonModule,
     SharedModule,

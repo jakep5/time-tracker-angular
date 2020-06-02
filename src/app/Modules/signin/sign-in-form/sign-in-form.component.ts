@@ -15,6 +15,7 @@ export class SignInFormComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
   signIn(username: string, password: string, confirmPassword?: string) {
@@ -23,8 +24,9 @@ export class SignInFormComponent implements OnInit {
       username,
       password,
       confirmPassword
-    }
+    };
 
+    //send user object to signInPage component
     this.signInEvent.emit(signInUser);
   }
 

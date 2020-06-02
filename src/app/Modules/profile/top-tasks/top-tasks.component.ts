@@ -30,9 +30,9 @@ export class TopTasksComponent implements OnInit {
       this.tasksSorted = 'no tasks to display yet!';
     } else {
 
+      //top 4 tasks are returned from tasks compared by hours (descending order)
       this.tasksSorted = this.tasks.sort(this.compareFunctions.compareHours)
         .slice(0, 4);
     }
-
   }
 }

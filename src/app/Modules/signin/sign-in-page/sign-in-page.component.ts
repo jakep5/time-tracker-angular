@@ -27,6 +27,8 @@ export class SignInPageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
+    //display 'need to sign in' message if no currently-logged user
     if (this.route.snapshot.paramMap.get('needSignIn')) {
       this.needSignIn = true;
     }
@@ -44,7 +46,7 @@ export class SignInPageComponent implements OnInit {
       })
       .then(res => {
         this.isLoading = false;
-        this.router.navigate(['main'])
+        this.router.navigate(['main']);
       })
       .catch(err => {
         this.error = true;

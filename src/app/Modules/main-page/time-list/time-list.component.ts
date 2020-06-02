@@ -21,10 +21,13 @@ export class TimeListComponent implements OnInit {
     private taskService: TaskService,
   ) { }
 
- 
+  //visibility of task add form
   toggleAddToList: boolean = false;
 
+  //property for currently-selected sort by value 
   sortBy: string = '';
+
+  tasks: Task[];
 
   ngOnInit(): void {
     this.taskService.getTasks(sessionStorage.getItem('userId'))
@@ -40,13 +43,14 @@ export class TimeListComponent implements OnInit {
     
   }
 
-  tasks: Task[];
-
   deleteItem(taskToDelete: Task) {
-
+    
+    //confirmation popup with corresponding task information
     let confirmation = confirm(`Are you sure you want to delete ${taskToDelete.name}, with ${taskToDelete.hours} hours logged?`);
 
     if (confirmation) {
+
+      //if confirmation is true, delete task via its ID
       this.tasks.map(task => {
         if (task.id === taskToDelete.id) {
           let deleteIndex = this.tasks.indexOf(task);
@@ -66,10 +70,12 @@ export class TimeListComponent implements OnInit {
 
   searchTasks(searchVal: string): void {
 
+    //send get request for all tasks, then filter based on current search value (passed as argument)
     this.taskService.getTasks(sessionStorage.getItem('userId'))
       .then(taskReturn => this.tasks = taskReturn.filter(task => task.name.includes(searchVal)))
   }
 
+  //change sort by property, then execute current sort via compareFunctionsService
   changeSortBy(sortBy: string) {
     this.sortBy = sortBy;
 
@@ -82,14 +88,15 @@ export class TimeListComponent implements OnInit {
     } 
   }
 
+  //change sort direction, then re-sort the tasks
   changeSortDirection(sortDirection: string) {
     this.compareFunctionsService.changeSortDirection(sortDirection);
 
     this.changeSortBy(this.sortBy);
   }
 
+  //change currently-selected alphabetic character to sort by
   changeCharSort(char: string) {
-
     this.taskService.getTasks(sessionStorage.getItem('userId'))
       .then(tasks => {
         this.tasks = tasks;
@@ -98,6 +105,7 @@ export class TimeListComponent implements OnInit {
           this.taskService.getTasks(sessionStorage.getItem('userId'))
             .then(tasks => this.tasks = tasks)
         } else {
+          //change tasks to tasks that start with currently-selected sortBy character
           let filteredTasks = this.tasks.filter(item => item.name.startsWith(char))
 
           this.tasks = filteredTasks;

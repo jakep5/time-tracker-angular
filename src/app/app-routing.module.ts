@@ -11,8 +11,8 @@ import { ProfilePageComponent } from './Modules/profile/profile-page/profile-pag
 
 const routes: Routes = [
   { path:"home", component: HomepageComponent },
-  { path:"signIn", component: SignInPageComponent },
-  { path:"signUp", component: SignUpPageComponent },
+  { path:"signIn", component: SignInPageComponent,  },
+  { path:"signUp?needSignIn", component: SignUpPageComponent },
   { path:"main", component: MainPageComponent},
   { path: "profile", component: ProfilePageComponent},
   { path: "", redirectTo: "/home", pathMatch: 'full'}

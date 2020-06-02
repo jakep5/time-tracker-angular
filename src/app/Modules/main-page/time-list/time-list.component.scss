@@ -13,6 +13,7 @@ div.taskList {
 
     width: 95%;
     display: inline-block;
+    margin-top: 20px;
 
     @include mixins.breakpoint(tablet) {
         width: 65%;

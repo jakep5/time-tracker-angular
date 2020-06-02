@@ -20,6 +20,7 @@ export class UserService {
     this.execChange.next(userChange);
   }
 
+  //add all hours from all the user's tasks
   calculateTotalHours(tasks: Array<Task>): number {
     let totalHours: number = 0;
     
@@ -32,9 +33,8 @@ export class UserService {
     return totalHours
   }
 
+  //calculate user's current level based on their total hours logged of tasks
   calculateUserLevel(tasks: Array<Task>): string {
-    let level: string;
-
     let hoursLogged: number = 0;
 
     for (let task of tasks) {
@@ -52,10 +52,6 @@ export class UserService {
     } else {
       return 'master'
     }; 
-
-   /*  if (tasks < 10) {
-      level = 'Rookie';
-    } */
   }
 
 }

@@ -16,6 +16,12 @@ describe('TimeListItemComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(TimeListItemComponent);
     component = fixture.componentInstance;
+    component.task = {
+      'name': 'Test',
+      'priority': 'med',
+      'hours': 10,
+      'user_id': 1
+    }
     fixture.detectChanges();
   });
 

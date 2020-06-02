@@ -19,15 +19,17 @@ export class ProfilePageComponent implements OnInit {
 
   currentUser: string = localStorage.getItem('currentUser');
   
-  tasks: Array<Task> = this.taskService.getTasks(sessionStorage.getItem('userId'))
+  tasks: Array<Task> = this.taskService.getTasks(sessionStorage.getItem('userId'));
 
   userHours: number = 0;
   
   ngOnInit(): void {
+
+    //redirect to signUp page if no currently signed in user
     if (!sessionStorage.getItem('time-tracker-token-key')) {
       this.router.navigate(['signIn', {needSignIn: true}]);
     };
-    
+
     this.tasks = this.taskService.getTasks(sessionStorage.getItem('userId'))  
       .then(tasks => {
         this.userHours = this.userService.calculateTotalHours(tasks)
@@ -37,7 +39,4 @@ export class ProfilePageComponent implements OnInit {
   navigateToMain(): void {
     this.router.navigate(['main'])
   }
-
-
-
 }

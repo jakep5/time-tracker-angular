@@ -15,6 +15,7 @@ export class ShowPasswordDirective {
   toggle(span: HTMLElement) {
     this.shown = !this.shown;
 
+    //toggle to 'Hide password/Hide confirm password' if 'show' is clicked
     if (this.shown) {
       this.element.nativeElement.setAttribute('type', 'text');
       if (this.parentNode.firstChild.textContent === 'Password') {
@@ -23,6 +24,7 @@ export class ShowPasswordDirective {
         span.innerHTML = 'Hide confirm password';
       }
       
+    //toggle to 'Show password/Show confirm password if 'hide' is clicked
     } else {
       this.element.nativeElement.setAttribute('type', 'password');
       if (this.parentNode.firstChild.textContent === 'Password') {
@@ -38,6 +40,8 @@ export class ShowPasswordDirective {
     this.parentNode = parent;
     const span = document.createElement('span');
     span.className = "showPassword";
+
+    //Toggle between 'Show password' and 'Show confirm password' depending on which input
     if (this.parentNode.firstChild.textContent === 'Password') {
       span.innerHTML = 'Show password';
     } else {

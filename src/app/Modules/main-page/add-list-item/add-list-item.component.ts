@@ -21,13 +21,13 @@ export class AddListItemComponent implements OnInit {
 
   model = new Task();
 
+  //emit event with newly-added task
   onSubmit(addTaskForm: NgForm) {
     this.newTask.emit(addTaskForm.value);
   }
 
+  //hide add list form
   onHideFormClick() {
     this.hideForm.emit()
   }
-
-
 }

@@ -24,6 +24,7 @@ export class SearchTasksComponent implements OnInit {
     
   }
 
+  //emit searchTermChange
   search(term: string): void {
     this.searchTermChange.emit(term);
   }

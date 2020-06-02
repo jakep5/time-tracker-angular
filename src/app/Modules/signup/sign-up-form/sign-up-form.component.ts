@@ -31,15 +31,21 @@ export class SignUpFormComponent implements OnInit {
   error: boolean = false;
 
   onSubmit(signUpForm: NgForm) {
+    //toggle on loading bar
     this.isLoadingEvent.emit();
+
     this.authService.handleSignUpAuthentication(signUpForm)
       .then(res => {
+        //toggle off loading bar
         this.isLoadingEvent.emit();
+        
         this.router.navigate(['main'])
         this.tokenService.saveAuthToken(res.authToken);
       })
       .catch(res => {
+        //toggle off loading bar
         this.isLoadingEvent.emit();
+
         this.error = true;
       })
   }
