@@ -5,6 +5,8 @@
 
     <h1 class="signInHeader">Sign In</h1>
 
+    <p class="errorMessage" *ngIf="needSignIn">You must sign in to view this page</p>
+
     <p *ngIf="error" class="errorMessage">Invalid username and/or password</p>
     
     <app-sign-in-form (signInEvent)="signInUser($event)"></app-sign-in-form>

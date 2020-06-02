@@ -24,6 +24,10 @@ export class ProfilePageComponent implements OnInit {
   userHours: number = 0;
   
   ngOnInit(): void {
+    if (!sessionStorage.getItem('time-tracker-token-key')) {
+      this.router.navigate(['signIn', {needSignIn: true}]);
+    };
+    
     this.tasks = this.taskService.getTasks(sessionStorage.getItem('userId'))  
       .then(tasks => {
         this.userHours = this.userService.calculateTotalHours(tasks)

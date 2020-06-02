@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { User } from '../../shared/models/User';
 import { AuthenticationService } from '../../shared/Services/authentication-service.service';
@@ -17,14 +17,19 @@ export class SignInPageComponent implements OnInit {
 
   error: boolean = false;
 
+  needSignIn: boolean = false;
+
   constructor(
     private authService: AuthenticationService,
     private tokenService: TokenService,
     private router: Router,
-    private userService: UserService
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
+    if (this.route.snapshot.paramMap.get('needSignIn')) {
+      this.needSignIn = true;
+    }
   }
 
   signInUser(user: User) { 
