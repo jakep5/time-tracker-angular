@@ -1,27 +1,21 @@
-# TimeTrackerFinal
+# TimeTracker
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.4.
+### Link to Live Application
 
-## Development server
+https://time-tracker-jakepagel1.now.sh/
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Link to API documentation/server code
 
-## Code scaffolding
+https://github.com/jakep5/TimeTrackerAPI
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Technologies Used
 
-## Build
+Angular 9, TypeScript, SCSS, HTML5, Node.js, Express.js, PostgreSQL, JWT Authentication
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### Summary
 
-## Running unit tests
+This application allows users to create a list of tasks they are currently working on, along with hours and priority for each task. Users can filter tasks by an alphabetic character, sort by priority/hours/name, and search for tasks in their list. This application also implements a leveling system for each user based on their total amount of hours logged. 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Motivation
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+While in-between jobs, I have been constantly teaching myself various languages and technologies, and find it difficult to remember how much time I have spent on projects/learning. I also found it difficult to assign priorities to various tasks. So, I created this application to allow you to store total hours logged and priority for each task you are currently working on, all in one place. 
