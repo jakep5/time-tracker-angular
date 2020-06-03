@@ -10,7 +10,7 @@ https://github.com/jakep5/TimeTrackerAPI
 
 ### Technologies Used
 
-Angular 9, TypeScript, SCSS, HTML5, Node.js, Express.js, PostgreSQL, JWT Authentication
+Angular 9, TypeScript, SASS, HTML5, Node.js, Express.js, PostgreSQL, JWT Authentication
 
 ### Summary
 
